@@ -1,0 +1,43 @@
+<div class="mb-4 pb-2 border-b border-zinc-900">
+    <h3 class="text-2xl text-primary-dark mb-1">WordPress Private Plugin Manager</h3>
+    <p class="text-sm text-gray-400">Private hosted Plugin Manager | <span class="text-gray-500">Duration :
+        </span>3-5 Days | Deployed single-handedly</p>
+</div>
+<p class="mb-3">WP Private Plugin Manager is a WordPress plugin that facilitates the management and updating of
+    personally hosted plugins. This plugin is designed for WordPress administrators who maintain their private plugin
+    repository on a dedicated server.
+
+<div class="p-3 bg-zinc-900 rounded-sm">
+    <img class="lightbox" src="/public/projects/private-plugin/ss.png" alt="Wp Private Plugins Manager">
+</div>
+
+<strong class="text-primary-dark mt-4 block">Features:</strong>
+<ul class="pl-4 list-disc my-4">
+    <li class="my-1">
+        Plugin Management: Easily manage and update plugins hosted on your private server.
+    </li>
+    <li class="my-1">
+        User-Friendly Interface: Intuitive interface for seamless plugin activation, deactivation, and
+        updates.
+    </li>
+    <li class="my-1">
+        Automatic Updates: Keep your plugins up-to-date with automatic update functionality.
+    </li>
+</ul>
+
+<strong class="text-primary-dark mb-2 block">Remote Host</strong>
+<p class="mb-3">
+    The WP Private Plugin Manager communicates with a remote
+    host server to retrieve information about the hosted plugins. This
+    server-side component is responsible for serving plugin details to the
+    WordPress admin interface.</p>
+<strong class="text-primary-dark mb-2 block">Remote Host API</strong>
+<p>The remote host API file, located in the WP Plugin Publisher directory, acts as the endpoint for plugin
+    information. It responds to requests from the WP Private Plugin Manager and provides crucial data, such
+    as
+    plugin names, versions, and other relevant details.</p>
+<strong class="text-primary-dark mb-2 block">Authentication</strong>
+<p> Access to the remote host API is protected by a key to ensure security. Requests must include a
+    valid
+    key
+    for successful communication.</p>

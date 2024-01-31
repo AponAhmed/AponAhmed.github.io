@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+html,
+html body {
+  height: 100%;
+}
+.c-font{
+	font-family: 'Lobster', sans-serif;
+}
+.fixed-header {
+	background: rgba(255,255,255,.1);
+	backdrop-filter: blur(13px);
+	border-radius: 0px;
+	padding-top: 0;
+	padding-bottom: 0;
+  z-index: 2;
+}
+.zi-10{
+  z-index:10;
+}
+.popup-content {
+	height: calc(100% - 120px);
+	overflow-y: auto;
+	scrollbar-width: thin;
+	max-width: 1000px;
+	margin: 60px auto;
+  animation: zoom .5s;
+}
+.txt-wraper{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:80%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.txt-wraper p{
+  text-align:center;
+}
+.highlight{
+  font-size:3rem;
+  text-align:center;
+  font-family: 'Lobster', sans-serif;
+}
+
+.highlight span {
+	color: #16939f;
+	text-shadow: 0 0 0 rgb(0, 0, 0);
+	animation: highlight 3s ease-in-out infinite alternate;
+}
+
+@keyframes highlight {
+  to {
+    text-shadow: 20px 0 50px #ffffff81;
+    color: #71d1d8;
+  }
+} 
+
+@keyframes zoom {
+  0% {
+    transform: scale(.5);
+  }
+  90% {
+    transform: scale(1.012);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .popup-content {
+    height: calc(100% - 0px);
+    margin: 0px auto;
+  }
+}
+
+/*lightbox*/
+
+/* styles.css */
+
+/* Overlay styles */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Image styles */
+.lightbox-image {
+	max-width: 90%;
+	max-height: 90%;
+	border: 8px solid #71ebff;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+	animation: zoom .5s;
+	border-radius: 4px;
+}
+
+/* Close button styles */
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* Optional: Add transition for smoother effects */
+.lightbox-image, .lightbox-close {
+  transition: 0.3s ease-in-out;
+}
+
+/* Hide the scrollbar when the lightbox is open */
+body.overflow-hidden {
+  overflow: hidden;
+}

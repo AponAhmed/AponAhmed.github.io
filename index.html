@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./dist/styles.css" />
+</head>
+
+<body class="bg-gradient-to-b from-primary-dark-full from-60% to-primary-dark bg-fixed text-gray-300  leading-5">
+  <main
+    class="max-w-[1040px] flex flex-col bg-custom-bg bg-opacity-60 backdrop:blur-2xl min-h-full lg:my-10 mx-auto rounded-md border border-solid border-slate-700">
+    <header id="home" class="container m-auto py-4">
+      <nav class="w-full">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu" aria-expanded="false">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <!--
+                    Icon when menu is closed.
+        
+                    Menu open: "hidden", Menu closed: "block"
+                  -->
+              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <!--
+                    Icon when menu is open.
+        
+                    Menu open: "block", Menu closed: "hidden"
+                  -->
+              <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex items-center w-full justify-start sm:items-stretch sm:justify-between">
+            <div class="flex flex-shrink-0 items-center">
+              <div class="text-2xl font-bold flex items-center c-font">
+                <a href="#home"><span class="text-primary-dark">Mh .</span>&nbsp;Apon</a>
+              </div>
+            </div>
+            <div class="hidden sm:ml-6 sm:block">
+              <div class="flex space-x-4">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <!-- <a href="#home" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                  aria-current="page">home</a> -->
+                <a href="#about"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+                <a href="#service"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Service</a>
+
+                <a href="#project"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                <a href="#expereance"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Expereance</a>
+
+                <a href="#contact"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <!-- <a href="#home" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+              aria-current="page">Home</a> -->
+            <a href="#about"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</a>
+
+            <a href="#service"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Service</a>
+            <a href="#project"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+            <a href="#expereance"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Expereance</a>
+
+            <a href="#contact"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-5">
+      <div class="container m-auto">
+        <div class="flex flex-col-reverse sm:flex-row">
+          <div class="py-5 flex flex-col items-center sm:items-start justify-center sm:w-7/12 w-full">
+            <strong class="font-bold text-lg">Hello, It's Me</strong>
+            <h2 class="text-4xl font-extrabold highlight">Muhiminul Haque</h2>
+            <strong class="font-light mt-2 text-lg h-8"
+              data-typing="And I'm a passionate Software Developer. | Always eager to learn and create something new. | In my free time, I love exploring new technologies | Love to contributing  open-source communities. | Let's connect and build something amazing together !"></strong>
+            <p class="text-md font-light my-2 text-center sm:text-left">Dedicated to solving complex problems through
+              code with
+              Over a decade of Experience in Software Development.</p>
+            <ul class="flex my-4">
+              <li class="border border-solid border-primary-color rounded-full p-1 mr-2">
+                <a title="GitHub" target="_blank" href="https://github.com/AponAhmed"><svg
+                    class="w-4 h-4 text-primary-color fill-primary-color" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 480 512">
+                    <path
+                      d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="border border-solid border-primary-color rounded-full p-1 mr-2">
+                <a href="https://www.linkedin.com/in/apon-ahmed-a921a9100">
+                  <svg class="w-4 h-4 text-primary-color fill-primary-color" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="border border-solid border-primary-color rounded-full p-1 mr-2">
+                <a href="https://www.facebook.com/M.2766/">
+                  <svg class="w-4 h-4 text-primary-color fill-primary-color" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512">
+                    <path
+                      d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+            <div>
+              <a href="./file/muhiminul-haque-resume.pdf"
+                class="bg-primary-color rounded-3xl py-2 px-5 inline-block text-gray-900">Download CV</a>
+            </div>
+          </div>
+          <div class="flex justify-start items-center sm:w-5/12 w-full">
+            <img src="./public/home.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-10 bg-custom-bg-light bg-opacity-50 ">
+      <div class="container m-auto">
+        <div class="flex flex-col sm:flex-row">
+          <div class="sm:flex justify-start items-center hidden  md:w-5/12">
+            <img src="./public/about.png">
+          </div>
+          <div class="flex  justify-center flex-col w-full md:w-7/12">
+            <h3 class="text-3xl font-bold">About <span class="text-primary-dark">Me</span></h3>
+            <p class="my-4">I aspire to establish a prominent presence as a software developer within an integrated
+              business solution provider, actively contributing to the substantial growth of the company.<br>
+              Concurrently, I seek to ensure my personal advancement within the organization. I am confident that my
+              robust technical acumen, comprehensive functional skills, and adept communication abilities will equip me
+              to successfully tackle the challenging career trajectory that lies ahead</p>
+            <div>
+              <a href="#" data-popup="skills"
+                class="z-[-1] popup-button bg-primary-color rounded-3xl py-2 px-5 inline-block text-gray-900">Explore My
+                Skills
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="service" class="py-10">
+      <div class="container m-auto">
+        <h3 class="text-center font-bold text-2xl mb-2">My <span class="text-primary-dark">Services</span></h3>
+        <p class="max-w-xl m-auto text-sm text-center mb-8">Your Goals, My Expertise : Services That Deliver.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+
+          <div class="text-center bg-zinc-900 flex-auto rounded-md p-5">
+            <svg class="my-4 w-10 h-10 m-auto text-primary-dark fill-primary-dark" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512">
+              <path
+                d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z" />
+            </svg>
+            <strong>Web App & Website Development</strong>
+            <p class="text-center my-2">Crafting dynamic and responsive web applications and sites with PHP, JavaScript,
+              and modern frameworks, ensuring seamless user experiences.</p>
+          </div>
+
+          <div class="text-center bg-zinc-900 flex-auto rounded-md p-5">
+            <svg class="my-4 w-10 h-10 m-auto text-primary-dark fill-primary-dark" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 512">
+              <path
+                d="M384 96V320H64L64 96H384zM64 32C28.7 32 0 60.7 0 96V320c0 35.3 28.7 64 64 64H181.3l-10.7 32H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c17.7 0 32-14.3 32-32s-14.3-32-32-32H277.3l-10.7-32H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm464 0c-26.5 0-48 21.5-48 48V432c0 26.5 21.5 48 48 48h64c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48H528zm16 64h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H544c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H544c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+            </svg>
+            <strong>Desktop App Development</strong>
+            <p class="text-center my-2">Building robust desktop applications tailored to client needs, utilizing Java
+              for cross-platform compatibility and performance optimization.</p>
+          </div>
+
+          <div class="text-center bg-zinc-900 flex-auto rounded-md p-5">
+            <svg class="my-4 w-10 h-10 m-auto text-primary-dark fill-primary-dark" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512">
+              <path
+                d="M61.7 169.4l101.5 278C92.2 413 43.3 340.2 43.3 256c0-30.9 6.6-60.1 18.4-86.6zm337.9 75.9c0-26.3-9.4-44.5-17.5-58.7-10.8-17.5-20.9-32.4-20.9-49.9 0-19.6 14.8-37.8 35.7-37.8 .9 0 1.8 .1 2.8 .2-37.9-34.7-88.3-55.9-143.7-55.9-74.3 0-139.7 38.1-177.8 95.9 5 .2 9.7 .3 13.7 .3 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l77.5 230.4L249.8 247l-33.1-90.8c-11.5-.7-22.3-2-22.3-2-11.5-.7-10.1-18.2 1.3-17.5 0 0 35.1 2.7 56 2.7 22.2 0 56.7-2.7 56.7-2.7 11.5-.7 12.8 16.2 1.4 17.5 0 0-11.5 1.3-24.3 2l76.9 228.7 21.2-70.9c9-29.4 16-50.5 16-68.7zm-139.9 29.3l-63.8 185.5c19.1 5.6 39.2 8.7 60.1 8.7 24.8 0 48.5-4.3 70.6-12.1-.6-.9-1.1-1.9-1.5-2.9l-65.4-179.2zm183-120.7c.9 6.8 1.4 14 1.4 21.9 0 21.6-4 45.8-16.2 76.2l-65 187.9C426.2 403 468.7 334.5 468.7 256c0-37-9.4-71.8-26-102.1zM504 256c0 136.8-111.3 248-248 248C119.2 504 8 392.7 8 256 8 119.2 119.2 8 256 8c136.7 0 248 111.2 248 248zm-11.4 0c0-130.5-106.2-236.6-236.6-236.6C125.5 19.4 19.4 125.5 19.4 256S125.6 492.6 256 492.6c130.5 0 236.6-106.1 236.6-236.6z" />
+            </svg>
+            <strong>WordPress Plugin & Theme Development</strong>
+            <p class="text-center my-2">Specializing in bespoke WordPress solutions, developing custom plugins and
+              themes to enhance functionality and improve the overall design.</p>
+          </div>
+
+          <div class="text-center bg-zinc-900 flex-auto rounded-md p-5">
+            <svg class="my-4 w-10 h-10 m-auto text-primary-dark fill-primary-dark" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512">
+              <path
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+            </svg>
+            <strong>E-commerce Solutions</strong>
+            <p class="text-center my-2">Creating secure and feature-rich e-commerce platforms with Laravel, ensuring
+              smooth transactions and a user-friendly online shopping experience.</p>
+          </div>
+
+          <div class="text-center bg-zinc-900 flex-auto rounded-md p-5">
+            <svg class="my-4 w-10 h-10 m-auto text-primary-dark fill-primary-dark" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512">
+              <path
+                d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" />
+            </svg>
+            <strong>Server Administration & Management</strong>
+            <p class="text-center my-2">Expertly managing and optimizing server environments, implementing robust
+              security measures, and ensuring seamless server performance for web applications</p>
+          </div>
+
+          <div class="text-center bg-zinc-900 flex-auto rounded-md p-5">
+            <svg class="my-4 w-10 h-10 m-auto text-primary-dark fill-primary-dark" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512">
+              <path
+                d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm0 240a24 24 0 1 0 0-48 24 24 0 1 0 0 48zM368 321.6V328c0 8.8 7.2 16 16 16s16-7.2 16-16v-6.4c0-5.3 4.3-9.6 9.6-9.6h40.5c7.7 0 13.9 6.2 13.9 13.9c0 5.2-2.9 9.9-7.4 12.3l-32 16.8c-5.3 2.8-8.6 8.2-8.6 14.2V384c0 8.8 7.2 16 16 16s16-7.2 16-16v-5.1l23.5-12.3c15.1-7.9 24.5-23.6 24.5-40.6c0-25.4-20.6-45.9-45.9-45.9H409.6c-23 0-41.6 18.6-41.6 41.6z" />
+            </svg>
+            <strong>Technology Consultation & Training</strong>
+            <p class="text-center my-2">Guiding businesses on tech strategies, recommending optimal solutions, and
+              providing insights for effective technology adoption and integration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="project" class="py-10  bg-custom-bg-light bg-opacity-50 z">
+      <div class="container m-auto">
+        <h3 class="text-center font-bold text-2xl mb-2">Latest <span class="text-primary-dark">Projects</span></h3>
+        <p class="max-w-xl m-auto text-sm text-center mb-8">Beyond Boundaries: Diverse Projects, Exceptional Outcomes.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+
+          <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
+            <img class="object-cover w-full" src="./public/bulk-email.jpg"
+              alt="Bulk Mailer Desktop App, Bulk Email Sender via Windows / Mac">
+
+            <div
+              class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
+              <div class="text-white  flex flex-col">
+                <h2 class="text-md font-normal mb-2 text-primary-color">
+                  Bulk Mailer Desktop App
+                </h2>
+                <p class="text-sm mb-2">
+                  Bulk Email Sender via Windows / Mac
+                </p>
+                <div>
+                  <button data-popup="projects/bulk-desktop"
+                    class="popup-button bg-primary-color rounded-3xl py-1 px-3 text-sm inline-block text-gray-900">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
+            <img class="object-cover w-full" src="./public/helpdesk.jpg"
+              alt="HelpDesk, Multiple Agent and Multiple Email Client">
+            <div
+              class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
+              <div class="text-white  flex flex-col">
+                <h2 class="text-md mb-2 font-normal text-primary-color">
+                  HelpDesk
+                </h2>
+                <p class="text-sm mb-2">
+                  Multiple Agent and Multiple Email Client
+                </p>
+                <div>
+                  <button data-popup="projects/helpdesk"
+                    class="popup-button bg-primary-color rounded-3xl py-1 px-3 text-sm inline-block text-gray-900">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
+            <img class="object-cover w-full" src="./public/web-bulk-email.jpg"
+              alt="DexMail Web App, Email Marketing Web Application">
+            <div
+              class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
+              <div class="text-white  flex flex-col">
+                <h2 class="text-md mb-2 font-normal text-primary-color">
+                  DexMail Web App
+                </h2>
+                <p class="text-sm mb-2">
+                  Email Marketing Web Application
+                </p>
+                <div>
+                  <button data-popup="projects/bulk-web"
+                    class="popup-button bg-primary-color rounded-3xl py-1 px-3 text-sm inline-block text-gray-900">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
+            <img class="object-cover w-full" src="./public/wp-backup.jpg"
+              alt="DexMail Web App, Email Marketing Web Application">
+            <div
+              class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
+              <div class="text-white  flex flex-col">
+                <h2 class="text-md mb-2 font-normal text-primary-color">
+                  WP Backup
+                </h2>
+                <p class="text-sm mb-2">
+                  Compress and Backup WordPress website
+                </p>
+                <div>
+                  <button data-popup="projects/wp-backup"
+                    class="popup-button bg-primary-color rounded-3xl py-1 px-3 text-sm inline-block text-gray-900">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
+            <img class="object-cover w-full" src="./public/private-plugins.jpg"
+              alt="DexMail Web App, Email Marketing Web Application">
+            <div
+              class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
+              <div class="text-white  flex flex-col">
+                <h2 class="text-md mb-2 font-normal text-primary-color">
+                  Private Plugin Manager
+                </h2>
+                <p class="text-sm mb-2 ">
+                  WordPrass Isolated Plugin Manager for private Use
+                </p>
+                <div>
+                  <button data-popup="projects/private-plugins"
+                    class="popup-button bg-primary-color rounded-3xl py-1 px-3 text-sm inline-block text-gray-900">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
+            <img class="object-cover w-full" src="./public/erp.jpg"
+              alt="DexMail Web App, Email Marketing Web Application">
+            <div
+              class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
+              <div class="text-white  flex flex-col">
+                <h2 class="text-md mb-2 font-normal text-primary-color">
+                  ERP
+                </h2>
+                <p class="text-sm mb-2">
+                  ERP - think about all the core business processes needed to run a company
+                </p>
+                <div>
+                  <button data-popup="projects/erp"
+                    class="popup-button bg-primary-color rounded-3xl py-1 px-3 text-sm inline-block text-gray-900">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expereance Section -->
+    <section id="expereance" class="py-10">
+      <div class="container m-auto">
+        <h3 class="text-center font-bold text-2xl mb-2">Working <span class="text-primary-dark">Expereance</span></h3>
+        <p class="max-w-xl m-auto text-sm text-center mb-8">With a solid understanding of the web development life cycle
+          and
+          more than 10 years of professional experience in this field, I
+          possess core expertise in web development.</p>
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+          <div class="bg-zinc-900 flex-auto rounded-md p-5">
+            <div class="text-lg font-bold">Softwear Developer</div>
+            <strong class="text-sm">SiATEX BD LTD</strong>
+            <p class="text-xs"><span class="text-primary-dark">Location </span> : Niketon, Gulshan 1, Dhaka.<br>
+              <span class="text-primary-dark">Duration </span> : July 2015 - August 2019 and again
+              February 2021 - Present
+            </p>
+            <p class="text-sm mt-2">Versatile web developer proficient in PHP, Java, Laravel, HTML, CSS, and JavaScript.
+              Adept at designing, developing, and maintaining diverse web applications, collaborating with
+              cross-functional teams, and troubleshooting technical issues for optimal performance.</p>
+          </div>
+          <div class="bg-zinc-900 flex-auto rounded-md p-5">
+            <div class="text-lg font-bold">Web Developer</div>
+            <strong class="text-sm">NrB Fashion LTD.</strong>
+            <p class="text-xs"><span class="text-primary-dark">Location </span> : Niketon, Gulshan 1, Dhaka.<br>
+              <span class="text-primary-dark">Duration </span> : September 2019 - January 2021
+            </p>
+            <p class="text-sm mt-2">Dynamic web developer skilled in PHP, HTML, CSS, and JavaScript. Proven collaborator
+              in transforming ideas into functional applications, enhancing digital presence through strategic
+              initiatives, and optimizing user experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-10  bg-custom-bg-light bg-opacity-50">
+      <div class="container m-auto">
+        <h3 class="text-center font-bold text-2xl mb-2">Quick <span class="text-primary-dark">Contact</span></h3>
+        <p class="max-w-xl m-auto text-sm text-center mb-8">Connect Instantly: Seamless Communication for Inquiries and
+          Collaboration
+        </p>
+
+        <div class="flex flex-col md:flex-row">
+          <form id="contactForm" action="https://forms.nicepagesrv.com/v2/form/process"
+            class="md:max-w-xl max-w-full w-full m-auto flex flex-col align-baseline md:w-7/12">
+            <input name="name" class="p-2 px-4 mb-2 rounded-sm bg-zinc-900" type="text" placeholder="Name">
+            <input name="email" class="p-2 px-4 mb-2 rounded-sm bg-zinc-900" type="email" placeholder="Email Address">
+            <textarea name="message" class="p-2 px-4 mb-2 rounded-sm bg-zinc-900" placeholder="Message Here"></textarea>
+            <input type="hidden" name="formServices" value="1fd15c2a-0a26-17ae-0da1-71f55d9b7099">
+            <input type="hidden" name="npspec-referer" value="./">
+            <div>
+              <button class="bg-primary-color rounded-3xl py-2 px-5 inline-block text-gray-900 mt-4">Send</button>
+            </div>
+          </form>
+
+          <div class=" md:w-5/12">
+            <div class="mb-4 md:mb-0 md:ml-8 flex flex-col">
+              <div>
+                <p class="mb-2 italic">Please don't hesitate to reach out—I'll do my utmost to respond promptly.</p>
+                <p class="text-sm"><span class="text-primary-dark my-1">Location </span> : Dhaka, Bangladesh (GMT+6)<br>
+                  <span class="text-primary-dark my-1">Cell </span> : +880 1628 954401 <br>
+                  <span class="text-primary-dark my-1">Email </span> : <a
+                    href="mailto:apon2041@gmail.com">apon2041@gmail.com</a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <footer class="bg-zinc-950 p-4">
+      <div class="container m-auto">
+
+      </div>
+    </footer>
+
+  </main>
+  <button id="back-to-top-btn"
+    class="fixed bottom-4 right-4 hidden bg-gray-900 text-white p-4 rounded-full bg-opacity-20">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 512 512">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"
+        d="M112 244l144-144 144 144M256 120v292" />
+    </svg>
+  </button>
+  <script src="./dist/bundle.js"></script>
+
+  <!-- Popup -->
+  <!-- <div class="fixed left-0 top-0 w-full h-full bg-primary-dark-full bg-opacity-40">
+    <div><button
+        class="absolute top-0 right-0 m-2 cursor-pointer text-5xl font-light leading-3">×</button>
+    </div>
+    <div class="popup-content m-10 p-10 h-full border border-slate-600 rounded-md bg-custom-bg max-h-full">
+      <div>Hello</div>
+    </div>
+  </div> -->
+
+</body>
+
+</html>
