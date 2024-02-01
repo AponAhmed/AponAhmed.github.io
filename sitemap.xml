@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Home page -->
+    <url>
+        <loc>https://aponahmed.github.io/</loc>
+        <lastmod>2022-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- About section -->
+    <url>
+        <loc>https://aponahmed.github.io/#about</loc>
+        <lastmod>2022-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service section -->
+    <url>
+        <loc>https://aponahmed.github.io/#service</loc>
+        <lastmod>2022-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Project section -->
+    <url>
+        <loc>https://aponahmed.github.io/#project</loc>
+        <lastmod>2022-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Experience section -->
+    <url>
+        <loc>https://aponahmed.github.io/#experience</loc>
+        <lastmod>2022-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Contact section -->
+    <url>
+        <loc>https://aponahmed.github.io/#contact</loc>
+        <lastmod>2022-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
