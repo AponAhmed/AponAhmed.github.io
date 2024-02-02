@@ -2,20 +2,25 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Virtual Card of Muhiminul Haque Apon</title>
-   <meta name="description" content="Apon Ahmed | Web Developer - Dedicated to solving complex problems through code with Over a decade of Experience in Software Development. I'm a passionate Software Developer. | Always eager to learn and create something new. | In my free time, I love exploring new technologies | Love to contributing  open-source communities. | Let's connect and build something amazing together !, Dedicated to solving complex problems through code with Over a decade of Experience in Software Development.">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Virtual Card of Muhiminul Haque Apon</title>
+	<meta name="description" content="Apon Ahmed | Web Developer - Dedicated to solving complex problems through code with Over a decade of Experience in Software Development. I'm a passionate Software Developer. | Always eager to learn and create something new. | In my free time, I love exploring new technologies | Love to contributing  open-source communities. | Let's connect and build something amazing together !, Dedicated to solving complex problems through code with Over a decade of Experience in Software Development.">
 	<meta name="keywords" content="Apon Ahmed, Muhiminul Haque, web developer, software development, open source, problem solving">
 	<meta name="robots" content="index,follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 	<link rel="canonical" href="https://aponahmed.github.io/">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Apon Ahmed | Web Developer - Dedicated to solving complex problems through code with Over a decade of Experience in Software Development. I'm a passionate Software Developer. | Always eager to learn and create something new. | In my free time, I love exploring new technologies | Love to contributing  open-source communities. | Let's connect and build something amazing together !, Dedicated to solving complex problems through code with Over a decade of Experience in Software Development.">
-	 <meta property="og:image" content="https://aponahmed.github.io/public/home.png">
+	<meta property="og:image" content="https://aponahmed.github.io/public/home.png">
 	<meta property="og:url" content="https://aponahmed.github.io/">
 	<meta property="og:site_name" content="MH.Apon">
-  <link rel="stylesheet" href="./public/assets/styles.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+	<link rel="preload" href="./public/home.png" as="image">
+	<link rel="preload" href="./public/about.png" as="image">
+	<link rel="stylesheet" href="./public/assets/styles.css" />
 </head>
 <body class="bg-gradient-to-b from-primary-dark-full from-60% to-primary-dark bg-fixed text-gray-300  leading-5">
   <main
@@ -106,11 +111,11 @@
       <div class="container m-auto">
         <div class="flex flex-col-reverse sm:flex-row">
           <div class="py-5 flex flex-col items-center sm:items-start justify-center sm:w-7/12 w-full">
-            <strong class="font-bold text-lg">Hello, It's Me</strong>
-            <h2 class="text-4xl font-extrabold highlight">Muhiminul Haque</h2>
-            <strong class="font-light mt-2 text-lg h-8"
+            <strong class="text-lg font-light text-zinc-400">Hello, It's Me</strong>
+            <h2 class="text-3xl md:text-6xl font-extrabold highlight">Muhiminul Haque</h2>
+            <strong class="font-light mt-2 block md:text-lg h-5 mb-2 text-primary-color"
               data-typing="And I'm a passionate Software Developer. | Always eager to learn and create something new. | In my free time, I love exploring new technologies | Love to contributing  open-source communities. | Let's connect and build something amazing together !"></strong>
-            <p class="text-md font-light my-2 text-center sm:text-left">Dedicated to solving complex problems through
+            <p class="font-light my-2 text-center sm:text-left italic">Dedicated to solving complex problems through
               code with
               Over a decade of Experience in Software Development.</p>
             <ul class="flex my-4">
@@ -147,8 +152,9 @@
                 class="bg-primary-color rounded-3xl py-2 px-5 inline-block text-gray-900">Download CV</a>
             </div>
           </div>
-          <div class="flex justify-start items-center sm:w-5/12 w-full">
-            <img src="./public/home.png" alt="Home - Image Apon Ahmed">
+          <div class="flex justify-start items-center sm:w-5/12 w-full aspect-w-16 aspect-h-9 p-14">
+            <img src="./public/home.png" width="250" height="272" class="object-contain object-center w-full " loading="lazy"
+              alt="Home - Image Apon Ahmed">
           </div>
         </div>
       </div>
@@ -158,8 +164,9 @@
     <section id="about" class="py-10 bg-custom-bg-light bg-opacity-50 ">
       <div class="container m-auto">
         <div class="flex flex-col sm:flex-row">
-          <div class="sm:flex justify-start items-center hidden  md:w-5/12">
-            <img src="./public/about.png" alt="About  - Image Apon Ahmed">
+          <div class="sm:flex justify-start items-center hidden  md:w-5/12 aspect-w-16 aspect-h-9 p-14">
+            <img src="./public/about.png" width="250" height="272" class="object-contain object-center w-full"
+              alt="About  - Image Apon Ahmed">
           </div>
           <div class="flex  justify-center flex-col w-full md:w-7/12">
             <h3 class="text-3xl font-bold">About <span class="text-primary-dark">Me</span></h3>
@@ -264,7 +271,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/block-editor.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/block-editor.jpg"
               alt="Block Editor - The Block Editor streamlines HTML creation for dynamic, customizable layouts, empowering efficient web development.">
 
             <div
@@ -274,7 +281,8 @@
                   Block Editor
                 </h2>
                 <p class="text-sm mb-2">
-                  The Block Editor streamlines HTML creation for dynamic, customizable layouts, empowering efficient web development.
+                  The Block Editor streamlines HTML creation for dynamic, customizable layouts, empowering efficient web
+                  development.
                 </p>
                 <div>
                   <button data-popup="projects/block-editor"
@@ -286,7 +294,7 @@
             </div>
           </div>
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/bulk-email.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/bulk-email.jpg"
               alt="Bulk Mailer Desktop App, Bulk Email Sender via Windows / Mac">
 
             <div
@@ -309,7 +317,7 @@
           </div>
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/helpdesk.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/helpdesk.jpg"
               alt="HelpDesk, Multiple Agent and Multiple Email Client">
             <div
               class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
@@ -331,7 +339,7 @@
           </div>
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/web-bulk-email.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/web-bulk-email.jpg"
               alt="DexMail Web App, Email Marketing Web Application">
             <div
               class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
@@ -353,7 +361,7 @@
           </div>
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/wp-backup.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/wp-backup.jpg"
               alt="DexMail Web App, Email Marketing Web Application">
             <div
               class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
@@ -375,7 +383,7 @@
           </div>
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/private-plugins.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/private-plugins.jpg"
               alt="DexMail Web App, Email Marketing Web Application">
             <div
               class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
@@ -395,10 +403,9 @@
               </div>
             </div>
           </div>
-		  
-		  
+
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/contact.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/contact.jpg"
               alt="DexMail Web App, Email Marketing Web Application">
             <div
               class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
@@ -420,7 +427,7 @@
           </div>
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/wp-cache.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/wp-cache.jpg"
               alt="DexMail Web App, Email Marketing Web Application">
             <div
               class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
@@ -442,7 +449,7 @@
           </div>
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" src="./public/erp.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/erp.jpg"
               alt="DexMail Web App, Email Marketing Web Application">
             <div
               class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
@@ -539,10 +546,8 @@
     </section>
     <footer class="bg-zinc-950 p-4">
       <div class="container m-auto">
-
       </div>
     </footer>
-
   </main>
   <button id="back-to-top-btn"
     class="fixed bottom-4 right-4 hidden bg-gray-900 text-white p-4 rounded-full bg-opacity-20">
