@@ -1,7 +1,11 @@
+:root{
+  --webchat-width:350px;
+  --space-from-corner:100px;
+}
 
 .bpw-header-subtitle {
   display: none;
 }
 .bpw-header-container {
-  background: #01eefe;
+	background: #05a6b0;
 }
