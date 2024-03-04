@@ -3,6 +3,12 @@
   --space-from-corner:100px;
 }
 
+.bpw-layout {
+	border: 2px solid rgba(5, 166, 176,.8) !important;
+	margin-bottom: 20px;
+	margin-right: 20px;
+}
+
 .bpw-header-container {
 	background: #05a6b0;
 }
