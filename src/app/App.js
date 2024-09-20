@@ -1,6 +1,7 @@
 import { Dombuilder } from "@aponahmed/dombuilder";
 import Popup from './Popup.js';
 import Lightbox from "./lightbox.js";
+import Bird from "./Bird.js";
 
 export default class App {
   constructor() {
@@ -237,6 +238,76 @@ export default class App {
     }
   }
 
+  birdsFlocking() {
+
+    // Initialize flock
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = `position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;pointer-events: none;`;//pointer-events: none;
+
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const flock = [];
+    const flockSize = 150;
+
+    window.addEventListener("resize", (e) => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    })
+
+    for (let i = 0; i < flockSize; i++) {
+      flock.push(new Bird(
+        .6,//Size
+        Math.random() * canvas.width,
+        Math.random() * canvas.height,
+        Math.random() * 2 - 1, // Random velocity in x direction
+        Math.random() * 2 - 1, // Random velocity in y direction
+        Math.random() * 30 + 20, // Random minDistance between 20 and 50
+        0.1 // Smoothing factor
+      ));
+    }
+
+    // canvas.addEventListener('mousemove', (event) => {
+    //   const mouseX = event.clientX - canvas.getBoundingClientRect().left;
+    //   const mouseY = event.clientY - canvas.getBoundingClientRect().top;
+    //   const breakRadius = 50; // Adjust the radius as needed
+    //   Bird.clearFlockNearMouse(mouseX, mouseY, breakRadius, flock);
+    // });
+
+    function drawFlock() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const bird of flock) {
+        bird.draw(ctx);
+      }
+    }
+
+    function updateFlock() {
+      for (const bird of flock) {
+        bird.update(flock, canvas);
+      }
+    }
+
+    function animate() {
+      updateFlock();
+      drawFlock();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+  robot() {
+    let eve = new Eve();
+    eve.init();
+  }
+
+
+
   init() {
     document.addEventListener("DOMContentLoaded", () => {
       this.typeEffect();
@@ -247,6 +318,8 @@ export default class App {
       this.lightboxInit()
       const form = document.getElementById('contactForm');
       form.addEventListener('submit', this.submitForm.bind(this));
+      this.birdsFlocking();
+      //this.robot();
     });
   }
 }
