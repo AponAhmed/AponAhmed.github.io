@@ -34,7 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <link rel="preload" href="./public/home.png" as="image">
   <link rel="preload" href="./public/about.png" as="image">
-  <link rel="stylesheet" href="./public/assets/styles.css" />
+  <link rel="stylesheet" href="./dist/styles.css" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -101,102 +101,134 @@
     }
     </script>
   <style>
+    html,
+    body {
+      scrollbar-width: none;
+    }
+
     #chatbot {
       right: 1rem !important;
     }
 
-    #chatbot-input {
-      color: #000;
+    #chatbot-window {
+      background: rgba(4, 4, 4, 0.2) !important;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(39, 138, 124, 0.65);
+    }
+
+    #chatbot-window input {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(66, 66, 66, 0.2) !important;
+      color: #fff !important;
+    }
+
+    #chatbot-messages {
+      border-color: rgba(119, 119, 119, 0.2) !important;
+    }
+
+    .bot-message>span {
+      background: rgba(0, 183, 255, 0.11) !important;
+      backdrop-filter: blur(15px);
+      max-width: 90% !important;
+    }
+
+    .user-message span {
+      background: rgba(0, 0, 0, .2) !important;
+      color: #fff !important;
+    }
+
+    .bot-message>span a {
+      color: #46f4dc;
     }
   </style>
+
 </head>
 
 <body
   class="bg-gradient-to-b from-primary-dark-full from-60% to-primary-dark bg-fixed text-gray-200 font-light  leading-5">
-  <main
-    class="max-w-[1040px] flex flex-col bg-custom-bg bg-opacity-60 backdrop:blur-2xl min-h-full lg:my-10 mx-auto rounded-md border border-solid border-slate-700">
-    <header id="home" class="container m-auto py-4">
-      <nav class="w-full">
-        <div class="relative flex h-16 items-center justify-between">
-          <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
-            <!-- Mobile menu button-->
-            <button type="button"
-              class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu" aria-expanded="false">
-              <span class="absolute -inset-0.5"></span>
-              <span class="sr-only">Open main menu</span>
-              <!--
-                    Icon when menu is closed.
-        
-                    Menu open: "hidden", Menu closed: "block"
-                  -->
-              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-              <!--
-                    Icon when menu is open.
-        
-                    Menu open: "block", Menu closed: "hidden"
-                  -->
-              <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          <div class="flex items-center w-full justify-start sm:items-stretch sm:justify-between">
-            <div class="flex flex-shrink-0 items-center">
-              <div class="text-2xl font-bold flex items-center c-font">
-                <h1 class="text-0" style="font-size: 0px;">Muhiminul Haque Apon | Web Developer From Bangladesh | Over
-                  10 Years of Experienced in Softwear development</h1>
-                <a href="#home"><span class="text-primary-dark">Mh .</span>&nbsp;Apon</a>
-              </div>
+  <header id="home" class="py-4">
+    <nav class="container m-auto">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button"
+            class="relative inline-flex items-center justify-center p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu" aria-expanded="false">
+            <span class="absolute -inset-0.5"></span>
+            <span class="sr-only">Open main menu</span>
+            <!--
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <!--
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex items-center w-full justify-start sm:items-stretch sm:justify-between">
+          <div class="flex flex-shrink-0 items-center">
+            <div class="text-2xl font-bold flex items-center c-font">
+              <h1 class="text-0" style="font-size: 0px;">Muhiminul Haque Apon | Web Developer From Bangladesh | Over
+                10 Years of Experienced in Softwear development</h1>
+              <a href="#home"><span class="text-primary-dark">Mh .</span>&nbsp;Apon</a>
             </div>
-            <div class="hidden sm:ml-6 sm:block">
-              <div class="flex space-x-4">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <!-- <a href="#home" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                  aria-current="page">home</a> -->
-                <a href="#about"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
-                <a href="#service"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Service</a>
+          </div>
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <!-- <a href="#home" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                aria-current="page">home</a> -->
+              <a href="#about"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+              <a href="#service"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Service</a>
 
-                <a href="#project"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-                <a href="#expereance"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Expereance</a>
+              <a href="#project"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+              <a href="#expereance"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Expereance</a>
 
-                <a href="#contact"
-                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
-              </div>
+              <a href="#contact"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Mobile menu, show/hide based on menu state. -->
-        <div class="sm:hidden hidden" id="mobile-menu">
-          <div class="space-y-1 px-2 pb-3 pt-2">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <!-- <a href="#home" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-              aria-current="page">Home</a> -->
-            <a href="#about"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</a>
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="sm:hidden hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <!-- <a href="#home" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+            aria-current="page">Home</a> -->
+          <a href="#about"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</a>
 
-            <a href="#service"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Service</a>
-            <a href="#project"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-            <a href="#expereance"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Expereance</a>
+          <a href="#service"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Service</a>
+          <a href="#project"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+          <a href="#expereance"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Expereance</a>
 
-            <a href="#contact"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
-          </div>
+          <a href="#contact"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
+  <main class="max-w-[1040px] flex flex-col backdrop:blur-2xl min-h-full lg:my-10 mx-auto ">
 
     <!-- Hero Section -->
     <section class="py-5">
@@ -273,7 +305,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-10 bg-custom-bg-light bg-opacity-50 ">
+    <section id="about" class="py-10 bg-custom-bg-light bg-opacity-50 rounded-xl">
       <div class="container m-auto">
         <div class="flex flex-col sm:flex-row">
           <div class="sm:flex justify-start items-center hidden  md:w-5/12 aspect-w-16 aspect-h-9 pr-10">
@@ -375,7 +407,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="project" class="py-10  bg-custom-bg-light bg-opacity-50 z">
+    <section id="project" class="py-10">
       <div class="container m-auto">
         <h3 class="text-center font-bold text-2xl mb-2">Latest <span class="text-primary-light">Projects</span></h3>
         <p class="max-w-xl m-auto text-sm text-center mb-8">Beyond Boundaries: Diverse Projects, Exceptional Outcomes.
@@ -619,7 +651,7 @@
       </div>
     </section>
 
-    <section id="contact" class="py-10  bg-custom-bg-light bg-opacity-50">
+    <section id="contact" class="py-10  bg-custom-bg-light bg-opacity-50 rounded-xl">
       <div class="container m-auto">
         <h3 class="text-center font-bold text-2xl mb-2">Quick <span class="text-primary-light">Contact</span></h3>
         <p class="max-w-xl m-auto text-sm text-center mb-8">Connect Instantly: Seamless Communication for Inquiries and
@@ -657,13 +689,12 @@
         </div>
       </div>
     </section>
-    <footer class="bg-zinc-950 p-4">
-      <div class="container m-auto">
-
-      </div>
-    </footer>
-
   </main>
+  <footer class="bg-zinc-950 p-4">
+    <div class="container m-auto">
+
+    </div>
+  </footer>
   <button id="back-to-top-btn"
     class="fixed bottom-20 right-4 hidden bg-gray-900 text-white p-4 rounded-full bg-opacity-20">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 512 512">
