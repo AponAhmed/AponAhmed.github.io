@@ -7,51 +7,58 @@ html,
 html body {
   height: 100%;
 }
-.c-font{
-	font-family: 'Lobster', sans-serif;
+
+.c-font {
+  font-family: 'Lobster', sans-serif;
 }
+
 .fixed-header {
-	background: rgba(255,255,255,.1);
-	backdrop-filter: blur(13px);
-	border-radius: 0px;
-	padding-top: 0;
-	padding-bottom: 0;
+  background: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(13px);
+  border-radius: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
   z-index: 2;
 }
-.zi-10{
-  z-index:10;
+
+.zi-10 {
+  z-index: 10;
 }
+
 .popup-content {
-	height: calc(100% - 120px);
-	overflow-y: auto;
-	scrollbar-width: thin;
-	max-width: 1000px;
-	margin: 60px auto;
+  height: calc(100% - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  max-width: 1000px;
+  margin: 60px auto;
   animation: zoom .5s;
 }
-.txt-wraper{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:80%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+
+.txt-wraper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.txt-wraper p{
-  text-align:center;
+
+.txt-wraper p {
+  text-align: center;
 }
-.highlight{
-  font-size:3rem;
-  text-align:center;
+
+.highlight {
+  font-size: 3rem;
+  text-align: center;
   font-family: 'Lobster', sans-serif;
 }
 
 .highlight span {
-	color: #16939f;
-	text-shadow: 0 0 0 rgb(0, 0, 0);
-	animation: highlight 3s ease-in-out infinite alternate;
+  color: #16939f;
+  text-shadow: 0 0 0 rgb(0, 0, 0);
+  animation: highlight 3s ease-in-out infinite alternate;
 }
 
 @keyframes highlight {
@@ -59,15 +66,17 @@ html body {
     text-shadow: 20px 0 50px #ffffff81;
     color: #71d1d8;
   }
-} 
+}
 
 @keyframes zoom {
   0% {
     transform: scale(.5);
   }
+
   90% {
     transform: scale(1.012);
   }
+
   100% {
     transform: scale(1);
   }
@@ -77,6 +86,13 @@ html body {
   .popup-content {
     height: calc(100% - 0px);
     margin: 0px auto;
+  }
+
+}
+
+@media (min-width: 640px) {
+  #chatbot-icon {
+    display: none;
   }
 }
 
@@ -100,12 +116,12 @@ html body {
 
 /* Image styles */
 .lightbox-image {
-	max-width: 90%;
-	max-height: 90%;
-	border: 8px solid #71ebff;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-	animation: zoom .5s;
-	border-radius: 4px;
+  max-width: 90%;
+  max-height: 90%;
+  border: 8px solid #71ebff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  animation: zoom .5s;
+  border-radius: 4px;
 }
 
 /* Close button styles */
@@ -123,11 +139,226 @@ html body {
 }
 
 /* Optional: Add transition for smoother effects */
-.lightbox-image, .lightbox-close {
+.lightbox-image,
+.lightbox-close {
   transition: 0.3s ease-in-out;
 }
 
 /* Hide the scrollbar when the lightbox is open */
 body.overflow-hidden {
   overflow: hidden;
+}
+
+
+/* BB8 */
+.bb8 {
+  position: fixed;
+  margin-left: -26.25px;
+  width: 52.5px;
+  bottom: 2px;
+  left: 0;
+}
+
+.antennas {
+  position: absolute;
+  transition: left 0.6s;
+  left: 10.5%;
+}
+
+.antennas.right {
+  left: 2.25%;
+}
+
+.antenna {
+  background: #e0d2be;
+  position: absolute;
+  width: 0.75px;
+}
+
+.antenna.short {
+  height: 7.5px;
+  top: -24.375px;
+  left: 18.75px;
+}
+
+.antenna.long {
+  border-top: 2.25px solid #020204;
+  border-bottom: 2.25px solid #020204;
+  height: 13.5px;
+  top: -30px;
+  left: 21px;
+}
+
+.head {
+  border-radius: 33.75px 33.75px 9.375px 9.375px;
+  height: 31px;
+  margin-left: -16.875px;
+  overflow: hidden;
+  position: absolute;
+  width: 40px;
+  z-index: 1;
+  top: -28px;
+  left: 52.75%;
+  background: url("../public/head.png");
+  background-size: 100%;
+  background-position: center;
+}
+
+.head .eyes {
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  transition: left 0.6s;
+  left: 0;
+}
+
+.head .eyes.right {
+  left: 13.5%;
+}
+
+.head .eye {
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+}
+
+.head .eye.one {
+  background: #020204;
+  border: 1.5px solid lightgray;
+  height: 11.25px;
+  width: 11.25px;
+  top: 5.75px;
+  left: 20%;
+}
+
+.head .eye.one::after {
+  background: white;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 1.125px;
+  position: absolute;
+  width: 1.125px;
+  top: 2.5px;
+  right: 1.5px;
+}
+
+.head .eye.two {
+  background-color: lightgrey;
+  border: 0.75px solid #020204;
+  height: 8px;
+  width: 8px;
+  top: 13.25px;
+  left: 48%;
+  position: relative;
+}
+
+.head .eye.two::after {
+  background: #020204;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  width: 4px;
+  top: 1px;
+  left: 1px;
+}
+
+.ball {
+  background-color: ghostwhite;
+  border-radius: 50%;
+  height: 61.875px;
+  overflow: hidden;
+  position: relative;
+  width: 61.875px;
+  background: url("../public/ball.png");
+  background-size: 100%;
+}
+
+.lines {
+  border: 1px solid rgba(0, 0, 0, .3);
+  border-radius: 50%;
+  height: 150px;
+  opacity: 0.6;
+  position: absolute;
+  width: 150px;
+}
+
+.lines.two {
+  top: -3.75px;
+  left: -93.75px;
+}
+
+.ring {
+  background: #cd7640;
+  border-radius: 50%;
+  height: 26.25px;
+  margin-left: -13.125px;
+  position: absolute;
+  width: 26.25px;
+}
+
+.ring::after {
+  background-color: ghostwhite;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 70%;
+  margin-top: -33%;
+  margin-left: -34%;
+  position: absolute;
+  width: 68%;
+  top: 50%;
+  left: 50%;
+}
+
+.ring.one {
+  margin-left: 5px;
+  height: 28.75px;
+  width: 32.5px;
+  top: 1.5%;
+  left: 15%;
+}
+
+.ring.two {
+  height: 30px;
+  width: 30px;
+  transform: rotate(50deg);
+  top: 55.875%;
+  left: -5.75%;
+}
+
+.ring.two:after {
+  top: 50%;
+}
+
+.ring.three {
+  height: 34px;
+  width: 30.25px;
+  transform: rotate(-37.5deg);
+  top: 63.5%;
+  left: 95.5%;
+}
+
+.ring.three:after {
+  top: 41.25%;
+}
+
+.shadow {
+  box-shadow: 0px 58px 8px rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  height: 11px;
+  position: absolute;
+  width: 60px;
+  z-index: -1;
+  left: 1px;
+  bottom: 54px;
+}
+
+/* Add your CSS here. Styles can be transferred from the React component */
+.bb8 {
+  transition: transform 0.1s ease-out;
+  /* left: 50%; */
 }

@@ -2,6 +2,7 @@ import { Dombuilder } from "@aponahmed/dombuilder";
 import Popup from './Popup.js';
 import Lightbox from "./lightbox.js";
 import Bird from "./Bird.js";
+import BB8 from "./BB8.js";
 
 export default class App {
   constructor() {
@@ -302,8 +303,13 @@ export default class App {
   }
 
   robot() {
-    let eve = new Eve();
-    eve.init();
+    const bb8Element = document.getElementById('bb8');
+    if (window.innerWidth > 640) {
+      const bb8 = new BB8(bb8Element);
+    } else {
+      bb8Element.style.display = 'none';
+    }
+
   }
 
 
@@ -319,7 +325,7 @@ export default class App {
       const form = document.getElementById('contactForm');
       form.addEventListener('submit', this.submitForm.bind(this));
       this.birdsFlocking();
-      //this.robot();
+      this.robot();
     });
   }
 }
