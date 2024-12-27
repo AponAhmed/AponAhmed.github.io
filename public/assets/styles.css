@@ -1297,11 +1297,12 @@ body.overflow-hidden {
 
 /* BB8 */
 .bb8 {
-  position: fixed;
-  margin-left: -26.25px;
-  width: 52.5px;
-  bottom: 2px;
-  left: 0;
+	position: fixed;
+	margin-left: -26.25px;
+	width: 52.5px;
+	bottom: 2px;
+	left: 0;
+	z-index: 99999;
 }
 
 .antennas {
@@ -1507,49 +1508,83 @@ body.overflow-hidden {
   transition: transform 0.1s ease-out;
   /* left: 50%; */
 }
+
+#bb8.show-message::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 20px;
+  border: 10px solid transparent;
+  border-top-color: rgba(0, 0, 0, .8);
+
+}
+
+#bb8.show-message::before {
+  content: "Hello! I'm BB8, Apon's assistant. How can I assist you today?";
+  position: absolute;
+  left: 0;
+  top: -130px;
+  width: 222px;
+  background: rgba(0, 0, 0, .8);
+  padding: 10px;
+  border-radius: 6px;
+  height: 80px;
+}
+
 .backdrop\:blur-2xl::backdrop {
   --tw-blur: blur(40px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
+
 .backdrop\:blur-md::backdrop {
   --tw-blur: blur(12px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
+
 .hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
+
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
 .focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
+
 .focus\:ring-inset:focus {
   --tw-ring-inset: inset;
 }
+
 .focus\:ring-white:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity));
 }
+
 .group:hover .group-hover\:translate-y-0 {
   --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+
 .group:hover .group-hover\:bg-zinc-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
 }
+
 .group:hover .group-hover\:bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
+
 @media (min-width: 640px) {
 
   .sm\:ml-6 {
@@ -1600,6 +1635,7 @@ body.overflow-hidden {
     text-align: left;
   }
 }
+
 @media (min-width: 768px) {
 
   .md\:mb-0 {
@@ -1664,6 +1700,7 @@ body.overflow-hidden {
     line-height: 1.75rem;
   }
 }
+
 @media (min-width: 1024px) {
 
   .lg\:my-10 {
