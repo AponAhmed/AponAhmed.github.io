@@ -18,6 +18,15 @@ export default class BB8 {
     }
 
     init() {
+
+        this.bb8.classList.add('show-message');
+        console.log(this.bb8.classList);
+        // Remove the class after 10 seconds
+        setTimeout(() => {
+            this.bb8.classList.remove('show-message');
+        }, 10000);
+
+
         // Track mouse movement
         document.addEventListener('mousemove', (event) => {
             this.mouseX = event.pageX;
