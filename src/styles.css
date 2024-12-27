@@ -152,11 +152,12 @@ body.overflow-hidden {
 
 /* BB8 */
 .bb8 {
-  position: fixed;
-  margin-left: -26.25px;
-  width: 52.5px;
-  bottom: 2px;
-  left: 0;
+	position: fixed;
+	margin-left: -26.25px;
+	width: 52.5px;
+	bottom: 2px;
+	left: 0;
+	z-index: 99999;
 }
 
 .antennas {
@@ -361,4 +362,26 @@ body.overflow-hidden {
 .bb8 {
   transition: transform 0.1s ease-out;
   /* left: 50%; */
+}
+
+#bb8.show-message::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 20px;
+  border: 10px solid transparent;
+  border-top-color: rgba(0, 0, 0, .8);
+
+}
+
+#bb8.show-message::before {
+  content: "Hello! I'm BB8, Apon's assistant. How can I assist you today?";
+  position: absolute;
+  left: 0;
+  top: -130px;
+  width: 222px;
+  background: rgba(0, 0, 0, .8);
+  padding: 10px;
+  border-radius: 6px;
+  height: 80px;
 }
