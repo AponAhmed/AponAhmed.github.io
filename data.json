@@ -1,0 +1,319 @@
+{
+    "personal_info": {
+        "name": "Muhiminul Haque Apon",
+        "title": "Fullstack Developer",
+        "location": "Dhaka, Bangladesh",
+        "email": "apon2041@gmail.com",
+        "phone": "+880 1628 954401",
+        "website": "https://aponahmed.github.io/",
+        "linkedin": "https://www.linkedin.com/in/apon-ahmed-a921a9100/",
+        "github": "https://github.com/AponAhmed",
+        "codepen": "https://codepen.io/apon22",
+        "soundcloud": "https://soundcloud.com/apon-ahmed-609880954",
+        "resume": "https://aponahmed.github.io/file/muhiminul-haque-resume.pdf"
+    },
+    "about_me": "Over a decade of professional experience in web technologies. Dedicated to solving complex problems through code, passionate about software development, and eager to learn and create new solutions. Actively contributes to open-source communities and is ready to connect and build innovative projects. I aspire to establish a prominent presence as a software developer within an integrated business solution provider, actively contributing to the substantial growth of the company. Concurrently, I seek to ensure my personal advancement within the organization. I am confident that my robust technical acumen, comprehensive functional skills, and adept communication abilities will equip me to successfully tackle the challenging career trajectory that lies ahead",
+    "core_skills": [
+        {
+            "name": "App Planning & Design",
+            "description": "Expert in conceptualizing, planning, and designing applications from the ground up. This involves translating client requirements into functional blueprints, ensuring user-friendly experiences, and considering both frontend and backend needs to ensure smooth development processes and scalability."
+        },
+        {
+            "name": "Database Design",
+            "description": "Specialized in designing efficient, scalable, and optimized databases to ensure robust performance. I ensure data integrity, consistency, and security by carefully planning schema, relationships, indexing, and normalization strategies to meet both present and future needs."
+        },
+        {
+            "name": "UI & UX Design",
+            "description": "Skilled in designing intuitive, aesthetically pleasing user interfaces (UI) that are both functional and engaging. I focus on improving the overall user experience (UX) by considering usability, accessibility, and emotional connection, ensuring that applications are easy to use and visually appealing."
+        },
+        {
+            "name": "App Development",
+            "description": "Proficient in developing dynamic, scalable applications using various programming languages and frameworks. I focus on delivering reliable, high-performance web and desktop applications with a strong emphasis on both functionality and user satisfaction."
+        }
+    ],
+    "technical_skills": [
+        "PHP",
+        "Java",
+        "MySQL",
+        "SQLite",
+        "PostgreSQL",
+        "Laravel",
+        "OOP",
+        "MVC",
+        "JavaScript",
+        "jQuery",
+        "Ajax",
+        "WordPress",
+        "Plugin & Theme Development",
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
+        "Google Cloud Services",
+        "Linux (Basic)",
+        "React",
+        "Vue.js",
+        "Next.js",
+        "JSON",
+        "Photoshop",
+        "Illustrator",
+        "Figma"
+    ],
+    "services": [
+        {
+            "name": "Web App & Website Development",
+            "description": "Designs and develops responsive, user-friendly web applications and websites tailored to business needs. Ensures cross-browser compatibility, security, and scalability."
+        },
+        {
+            "name": "Desktop App Development",
+            "description": "Creates powerful and efficient desktop applications using Java and other technologies. Focuses on delivering feature-rich and user-friendly experiences."
+        },
+        {
+            "name": "WordPress Plugin & Theme Development",
+            "description": "Specializes in creating custom WordPress plugins and themes to extend website functionality and improve aesthetics, aligned with client requirements."
+        },
+        {
+            "name": "E-commerce Solutions",
+            "description": "Builds robust e-commerce platforms with secure payment integrations, product management systems, and a seamless shopping experience for customers."
+        },
+        {
+            "name": "Server Administration & Management",
+            "description": "Provides reliable server setup, administration, and maintenance to ensure optimal performance and uptime. Skilled in managing Linux-based servers and cloud services."
+        },
+        {
+            "name": "Technology Consultation & Training",
+            "description": "Offers expert advice on technology solutions and conducts training sessions to help teams stay updated with the latest tech trends and best practices."
+        },
+        {
+            "name": "Web Scraping",
+            "description": "Develops automated scripts to scrape and process data from websites, ensuring accuracy and compliance with ethical and legal guidelines."
+        }
+    ],
+    "projects": [
+        {
+            "name": "HostSaler Laravel Backend",
+            "description": "HostSaler is a powerful backend solution for hosting service management, designed to help businesses and organizations manage web hosting operations efficiently. Built with the Laravel framework, it offers seamless integration with various web hosting functionalities, making it easier for users to handle and track hosting plans, customers, and payments",
+            "link": "Private Repository"
+        },
+        {
+            "name": "Block Editor",
+            "description": "The Block Editor is a robust web development tool that simplifies the creation of dynamic and customizable HTML layouts. Developed with HTML, CSS, and JavaScript, it empowers web developers to efficiently construct content-rich pages",
+            "link": "https://github.com/AponAhmed/BlockEditor"
+        },
+        {
+            "name": "Bulk Mailer Desktop App",
+            "description": "A Java-based bulk mailing application that integrates with the Gmail API, facilitating automated email sending. Supports multiple Google and SMTP accounts, offering flexibility for users managing diverse accounts concurrently.",
+            "link": "https://github.com/AponAhmed/BulkMailer"
+        },
+        {
+            "name": "HelpDesk",
+            "description": "An email client employing Gmail API and SMTP server functionalities. Facilitates management of numerous Gmail accounts, users with diverse permissions, and actions like replying and forwarding. Features integrated chat capabilities and comprehensive admin-assigned filtering and restrictions.",
+            "link": "https://github.com/AponAhmed/HelpDesk"
+        },
+        {
+            "name": "DexMail Web App",
+            "description": "A robust and feature-rich email marketing application developed from concept to completion within a three-month period. Empowers users with advanced email marketing capabilities.",
+            "link": "https://github.com/AponAhmed/DexMail"
+        },
+        {
+            "name": "WP Backup",
+            "description": "A WordPress backup plugin written in PHP. Provides functionality to backup both the database and files, compress them, and upload them to a remote server using FTP or instant download. Also manages backup history.",
+            "link": "https://github.com/AponAhmed/WPBackup"
+        },
+        {
+            "name": "Private Plugin Manager",
+            "description": "A WordPress plugin that facilitates the management and updating of personally hosted plugins. Designed for WordPress administrators who maintain their private plugin repository on a dedicated server.",
+            "link": "https://github.com/AponAhmed/PrivatePluginManager"
+        },
+        {
+            "name": "Product Customizer",
+            "description": "Create unique garment designs effortlessly with our customization app. Add logos, graphics, and more to bring your ideas to life!",
+            "link": "https://product-customizer-zfmo.vercel.app"
+        },
+        {
+            "name": "WordPress Contact",
+            "description": "The Gmail API Contact WordPress Plugin allows you to manage contact forms and send messages via Gmail API directly from your WordPress website.",
+            "link": "https://github.com/AponAhmed/contact"
+        }
+    ],
+    "work_experience": [
+        {
+            "position": "Software Developer",
+            "company": "SiATEX BD LTD",
+            "location": "Niketon, Gulshan 1, Dhaka",
+            "duration": "July 2015 - August 2019 and February 2021 - Present",
+            "responsibilities": "Versatile web developer proficient in PHP, Java, Laravel, HTML, CSS, and JavaScript. Designed, developed, and maintained diverse web applications, collaborated with cross-functional teams, and troubleshooted technical issues for optimal performance."
+        },
+        {
+            "position": "Web Developer",
+            "company": "NrB Fashion LTD.",
+            "location": "Niketon, Gulshan 1, Dhaka",
+            "duration": "September 2019 - January 2021",
+            "responsibilities": "Dynamic web developer skilled in PHP, HTML, CSS, and JavaScript. Transformed ideas into functional applications, enhanced digital presence through strategic initiatives, and optimized user experiences."
+        }
+    ],
+
+    "song_play_instruction": "To play a song, use the following iframe structure and replace {track_id} with the specific track ID:\n<iframe width=\"100%\" height=\"300\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{track_id}&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true\"></iframe>, Just iframe will be as respons no other text before and after.",
+    "soundcloud_tracks": [
+        {
+            "title": "এই মন তোমাকে দিলাম",
+            "track_id": "834082363"
+        },
+        {
+            "title": "Rimjhim E Dhara Te | Premer Kahini",
+            "track_id": "823993399"
+        },
+        {
+            "title": "তোমার আকাশ দুটি চোখে আমি হয়ে গেছি তারা",
+            "track_id": "823990000"
+        },
+        {
+            "title": "Main Yahaan Hoon | Veer-Zaara | Shah Rukh Khan | Preity Zinta | Udit Narayan",
+            "track_id": "823988728"
+        },
+        {
+            "title": "Kabhi alvida na kehna",
+            "track_id": "823986001"
+        },
+        {
+            "title": "Emon O Nodi Ache",
+            "track_id": "823983751"
+        },
+        {
+            "title": "Jodi Thor Dak Shoone Ko Na Ashi Tobe Ekla Cholo Re",
+            "track_id": "823981993"
+        },
+        {
+            "title": "Asha Chilo Mone Mone",
+            "track_id": "823980538"
+        },
+        {
+            "title": "Yoon Shabnami",
+            "track_id": "823977058"
+        },
+        {
+            "title": "Tinka - Tinka Zara Zara",
+            "track_id": "823974712"
+        },
+        {
+            "title": "Tere Rukh se apna rasta mod ke chala (Channa Mereya | Ae Dil Hai Mushkil)",
+            "track_id": "823972471"
+        },
+        {
+            "title": "Pardesi Pardesi",
+            "track_id": "823969216"
+        },
+        {
+            "title": "Mujhe Neend Na Aaye",
+            "track_id": "823966372"
+        },
+        {
+            "title": "Mitwa",
+            "track_id": "823963879"
+        },
+        {
+            "title": "Milon Hobe Koto Dine",
+            "track_id": "823962070"
+        },
+        {
+            "title": "Lag Ja Gale",
+            "track_id": "823960057"
+        },
+        {
+            "title": "Kal Ho Naa Ho",
+            "track_id": "823954672"
+        },
+        {
+            "title": "Humnava",
+            "track_id": "823952107"
+        },
+        {
+            "title": "Tujhe Kitna Chahne Lage ham (sad)",
+            "track_id": "823948324"
+        },
+        {
+            "title": "Dil De Diya Hai Jaan Tumhein Denge",
+            "track_id": "823946356"
+        },
+        {
+            "title": "Chale Aana",
+            "track_id": "823942840"
+        },
+        {
+            "title": "Bol do na zara",
+            "track_id": "823940206"
+        },
+        {
+            "title": "Amaro Porano Jaha Chay",
+            "track_id": "823936114"
+        },
+        {
+            "title": "Kew Kunodin Amare To (cover)",
+            "track_id": "440459631"
+        },
+        {
+            "title": "Hayre Manush Rongin fanush (cover)",
+            "track_id": "440457300"
+        },
+        {
+            "title": "Aye Mere Humsafar (cover)",
+            "track_id": "440455647"
+        },
+        {
+            "title": "Terenam (cover)",
+            "track_id": "440453256"
+        }
+    ],
+
+    "github_projects": [
+        {
+            "name": "Block Editor",
+            "description": "A tool for creating customizable HTML layouts and elements",
+            "url": "https://github.com/AponAhmed/BlockEditor"
+        },
+        {
+            "name": "image-compress",
+            "description": "A versatile Java base application designed to resize and compress images into various formats, ensuring optimal quality and reduced file size for efficient storage and faster loading times.",
+            "url": "https://github.com/AponAhmed/image-compress"
+        },
+        {
+            "name": "WP Backup Plugin",
+            "description": "This is a WordPress backup plugin written in PHP. It provides functionality to backup both the database and files, compress them, and upload them to a remote server using FTP or instant Download and also able to Manage Backup History.",
+            "url": "https://github.com/AponAhmed/WP-Backup"
+        },
+        {
+            "name": "Image downloader chrome Extension",
+            "description": "Images download from any website with MAximum size available",
+            "url": "https://github.com/AponAhmed/Image-downloader-chrome"
+        },
+        {
+            "name": "Tooltip",
+            "description": "The node js package is designed to create and display tooltips on HTML elements.",
+            "url": "https://github.com/AponAhmed/Tooltip"
+        },
+        {
+            "name": "Dombuilder by JS",
+            "description": "Node Package to build HTML dom esear.",
+            "url": "https://github.com/AponAhmed/dombuilder"
+        },
+        {
+            "name": "minify-assets",
+            "description": "Minify WordPress plugin designed to minify and manage CSS and JavaScript assets. It provides a convenient way to optimize and bundle frontend assets for improved performance.",
+            "url": "https://github.com/AponAhmed/minify-assets"
+        },
+        {
+            "name": "image-resizer",
+            "description": "The Image Resizer plugin is designed to generate multiple sizes of images in the WordPress Media Library. This plugin allows you to specify custom image sizes and automatically generates those sizes for each image in the Media Library",
+            "url": "https://github.com/AponAhmed/image-resizer"
+        },
+        {
+            "name": "Cache-WordPress Caching Plugin",
+            "description": "Cache is a WordPress caching plugin designed to enhance the performance of your website by caching static content",
+            "url": "https://github.com/AponAhmed/cache"
+        },
+        {
+            "name": "NotiFy",
+            "description": "Simple Notification for web, there three types of Notification - success,warning,error",
+            "url": "https://github.com/AponAhmed/NotiFy"
+        }
+    ]
+}

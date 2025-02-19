@@ -325,7 +325,7 @@ export default class App {
       const form = document.getElementById('contactForm');
       form.addEventListener('submit', this.submitForm.bind(this));
       this.birdsFlocking();
-      this.robot();
+      //this.robot();
     });
   }
 }

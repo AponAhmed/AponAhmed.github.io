@@ -1,0 +1,168 @@
+##here about me and some of my information, Actually in further conversation I need to write cover letter for various task(task and details will be provid further, here now just memorize the information)##
+
+Muhiminul Haque Apon
+Web Developer From Bangladesh | Over 10 Years of Experienced.
+Dedicated to solving complex problems through code with Over a decade of Experience in Software Development, A passionate Software Developer - Having a good web developer portfolio, Always eager to learn and create something new, love exploring new technologies & contributing  open-source communities, Ready connect and build something amazing together.
+
+#greetings : Hello, Hi, Greetings, Good day.
+
+#Social Links
+Githib : https://github.com/AponAhmed
+Linkedin : https://www.linkedin.com/in/apon-ahmed-a921a9100/
+Codepen : https://codepen.io/apon22
+Soundcloud : https://soundcloud.com/apon-ahmed-609880954
+Facebook : https://www.facebook.com/M.2766/
+Projects Link: https://aponahmed.github.io/#project
+About me Link :https://aponahmed.github.io/#about
+CV or resume download link : https://aponahmed.github.io/file/muhiminul-haque-resume.pdf
+
+#About Me
+I aspire to establish a prominent presence as a software developer within an integrated business solution provider,
+actively contributing to the substantial growth of the company. Concurrently,
+I seek to ensure my personal advancement within the organization. 
+I am confident that my robust technical acumen, comprehensive functional skills, and adept communication abilities will 
+equip me to successfully tackle the challenging career trajectory that lies ahead
+
+##Core Skills
+#Planning & Design App : Expert in app planning and design, translating concepts into strategic execution for seamless development workflows.
+#Database Design : Designs efficient and scalable databases, ensuring optimal performance and data integrity for robust and reliable applications.
+#UI & UX Design : Crafts intuitive and visually appealing user interfaces, prioritizing user experience for engaging and user-friendly web applications.
+#App Development : Proficient in PHP, Java, Laravel, HTML, CSS, and JavaScript, creating dynamic and scalable web applications tailored to project requirements.
+
+#Key Skills
+PHP, Java
+MySQL, SQLite, PostgreSQL
+Laravel, OOP, MVC
+JavaScript, jQuery, Ajax
+WordPress, Plugin & Theme development
+HTML5, CSS3, Tailwind CSS
+Google Cloud Services
+Linux (Basic)
+React, Vue.js, Next.js
+JSON
+Photoshop, Illustrator, Figma
+
+
+#Services : Your Goals, My Expertise : Services That Deliver.
+Web App & Website Development: Crafting dynamic and responsive web applications and sites with PHP, JavaScript, and modern frameworks, ensuring seamless user experiences.
+Desktop App Development : Building robust desktop applications tailored to client needs, utilizing Java for cross-platform compatibility and performance optimization.
+WordPress Plugin & Theme Development : Specializing in bespoke WordPress solutions, developing custom plugins and themes to enhance functionality and improve the overall design.
+E-commerce Solutions : Creating secure and feature-rich e-commerce platforms with Laravel, ensuring smooth transactions and a user-friendly online shopping experience.
+Server Administration & Management : Expertly managing and optimizing server environments, implementing robust security measures, and ensuring seamless server performance for web applications.
+Technology Consultation & Training : Guiding businesses on tech strategies, recommending optimal solutions, and providing insights for effective technology adoption and integration.
+Web scraping : Empower your business with my precise web scraping service. I extract, organize, and deliver tailored data for your needs, be it competitor analysis, market research, or lead generation. Trust My expertise to harness the vast web for invaluable insights, driving your success forward efficiently and reliably.
+
+##projects
+#Block Editor : The Block Editor streamlines HTML creation for dynamic, customizable layouts, empowering efficient web development.
+
+The Block Editor is a robust web development tool that simplifies the creation of dynamic and customizable HTML layouts. Developed with HTML, CSS, and JavaScript, it empowers web developers to efficiently construct content-rich pages. Block Editor on Github
+Key Components
+Component:
+The foundational building block for various elements within the editor.
+Subclasses include specialized components like Column, Heading, List, and Paragraph.
+Column:
+Facilitates the creation of column-based layouts.
+Allows for flexible structuring of content within an area.
+Heading:
+Generates heading elements, offering a straightforward way to incorporate titles and headers into the editor.
+List:
+Enables the integration of lists, providing a structured and organized approach to displaying content.
+Paragraph:
+Allows for the inclusion of text paragraphs, supporting rich content creation with a WYSIWYG editor.
+Area:
+Serves as a container for organizing and managing components.
+Supports features like resizing, directional changes, and context menus for enhanced user interaction.
+ComponentRegistry:
+Streamlines the process of managing and accessing various components.
+Promotes modularity and extensibility.
+DOMBuilder
+
+Acts as a utility for constructing and manipulating HTML elements.
+Provides a clean and efficient way to generate dynamic content.
+Features
+Modularity : Components can be easily added or removed, promoting a modular and scalable approach to building layouts.
+Customization : Allows customization of individual components through properties, such as custom classes, padding, background, border, and border radius.
+Context Menus : Provide quick access to actions like creating new areas, inserting components, deleting areas, changing direction, resizing, and accessing properties.
+Resizable Layouts : Users can dynamically resize areas, enhancing the flexibility of the editor in adapting to various content needs.
+Component Browser : A convenient component browser facilitates the insertion of new components, streamlining the development process.
+
+#Bulk Mailer Desktop App:Bulk Email Sender via Windows / Mac
+Java bulk mailing application seamlessly integrates with the Gmail API, facilitating automated email sending. Supporting multiple Google accounts and SMTP accounts, it offers flexibility for users managing diverse accounts concurrently. As a desktop application, it ensures local accessibility and convenience for users. The inclusion of an HTML Editor, utilizing JEditorPane and StyledEditorKit, empowers users to compose and format HTML content for their bulk emails within the application. The user-friendly interface, coupled with robust error handling and logging, guarantees a smooth user experience and provides insights into application performance. This project not only showcases your Java proficiency but also reflects your commitment to continuous learning and problem-solving.
+
+Language : Java
+UI Library : Java Swing
+Database : SQLite for Local and MySQL for Remote (Auto ​synchronize data)
+
+#HelpDesk: Multiple Agent and Multiple Email Client
+This project involves an email client employing Gmail API and SMTP server functionalities. It facilitates management of numerous Gmail accounts, users with diverse permissions, and actions like replying and forwarding. The client boasts integrated chat capabilities and comprehensive admin-assigned filtering and restrictions.
+
+Skills Utilized:
+HP (Laravel), JavaScript, MySQL, Google Web Services, API Integration, Frontend Development, Backend Development, Project Management.
+
+Key Achievements:
+Successfully developed a multi-user Gmail client with Multi Account
+Seamlessly integrated Gmail API and SMTP server capabilities.
+Implemented an intuitive integrated chat system for efficient communication.
+Created and fine-tuned admin-assigned filtering and user permission features.
+
+#DexMail Web App :Email Marketing Web Application
+Developed a robust and feature-rich email marketing application, DexMail, from concept to completion within a three-month period. Leveraged my expertise in PHP, Laravel, JavaScript, HTML, and CSS to create a comprehensive platform that empowers users with advanced email marketing capabilities.
+
+Skills Utilized:
+PHP, Laravel, JavaScript, HTML, CSS, Project Management, API Integration, ​Frontend Development, Backend Development, Email Marketing Best Practices, Quality Assurance, Independent Problem Solving.
+
+Independently designed, developed, and deployed DexMail, showcasing end-to-end project management prowess
+Built email template builder with HTML/CSS, integrated APIs for predictive marketing, enhancing targeting and engagement.
+
+#WP Backup:Compress and Backup WordPress website
+This is a WordPress backup plugin written in PHP. It provides functionality to backup both the database and files, compress them, and upload them to a remote server using FTP or instant Download and also able to Manage Backup History.
+
+Database Backup : Option to backup the WordPress database.
+File Backup : Backup WordPress files and folders (Customizable).
+Compression : Compress files and database into a zip file.
+FTP Upload :Facility to Upload the backup file to a remote server via FTP.
+To initiate a backup, go to the Backup tab in the WordPress admin panel and click the "Backup" button. Ensure that the server execution time is sufficient for the backup process.
+
+Settings
+Backup Type: Choose between local download or FTP upload.
+FTP Configuration: Configure FTP settings if FTP upload is selected.
+Backup Database: Enable or disable the backup of the WordPress database.
+Database File Name: Set the name of the database backup file.
+Exclude Folder: Choose folders to exclude from the backup.
+Backup History
+View the history of backups, including date, local file, remote file location, and options to remove backups.
+
+#Private Plugin Manager: WordPrass Isolated Plugin Manager for private Use
+WP Private Plugin Manager is a WordPress plugin that facilitates the management and updating of personally hosted plugins. This plugin is designed for WordPress administrators who maintain their private plugin repository on a dedicated server.
+Features:
+Plugin Management: Easily manage and update plugins hosted on your private server.
+User-Friendly Interface: Intuitive interface for seamless plugin activation, deactivation, and updates.
+Automatic Updates: Keep your plugins up-to-date with automatic update functionality.
+Remote Host
+The WP Private Plugin Manager communicates with a remote host server to retrieve information about the hosted plugins. This server-side component is responsible for serving plugin details to the WordPress admin interface.
+
+Remote Host API
+The remote host API file, located in the WP Plugin Publisher directory, acts as the endpoint for plugin information. It responds to requests from the WP Private Plugin Manager and provides crucial data, such as plugin names, versions, and other relevant details.
+
+Authentication
+Access to the remote host API is protected by a key to ensure security. Requests must include a valid key for successful communication.
+
+
+##Working Expereance :With a solid understanding of the web development life cycle and more than 10 years of professional experience in this field, I possess core expertise in web development.
+#Softwear Developer at SiATEX BD LTD
+Location : Niketon, Gulshan 1, Dhaka.
+Duration : July 2015 - August 2019 and again February 2021 - Present
+
+Versatile web developer proficient in PHP, Java, Laravel, HTML, CSS, and JavaScript. Adept at designing, developing, and maintaining diverse web applications, collaborating with cross-functional teams, and troubleshooting technical issues for optimal performance.
+#Web Developer at NrB Fashion LTD.
+Location : Niketon, Gulshan 1, Dhaka.
+Duration : September 2019 - January 2021
+
+Dynamic web developer skilled in PHP, HTML, CSS, and JavaScript. Proven collaborator in transforming ideas into functional applications, enhancing digital presence through strategic initiatives, and optimizing user experiences.
+
+##Quick Contact:Connect Instantly: Seamless Communication for Inquiries and Collaboration
+Please don't hesitate to reach out—I'll do my utmost to respond promptly.
+
+Location : Dhaka, Bangladesh (GMT+6)
+Cell : +880 1628 954401
+Email : apon2041@gmail.com

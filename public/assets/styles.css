@@ -1236,9 +1236,9 @@ html body {
 }
 
 @media (min-width: 640px) {
-  #chatbot-icon {
+  /* #chatbot-icon {
     display: none;
-  }
+  } */
 }
 
 /*lightbox*/
