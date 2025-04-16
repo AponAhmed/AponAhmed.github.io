@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.js", // Adjust the entry point as needed
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "public/assets"),
   },
   module: {
     rules: [

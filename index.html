@@ -108,7 +108,7 @@
       scrollbar-width: none;
     }
 
-    
+
 
     svg#chat path {
       fill: #a1f9ff;
@@ -429,9 +429,33 @@
         <p class="max-w-xl m-auto text-sm text-center mb-8">Beyond Boundaries: Diverse Projects, Exceptional Outcomes.
         </p>
         <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
+            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/teampulse.jpg"
+              alt="Block Editor - The Block Editor streamlines HTML creation for dynamic, customizable layouts, empowering efficient web development.">
+
+            <div
+              class="absolute bottom-0  p-2 w-full translate-y-full-with-offset-40 group-hover:translate-y-0  transition duration-300 group-hover:bg-zinc-900 group-hover:bg-opacity-50 backdrop:blur-md">
+              <div class="text-white  flex flex-col">
+                <h2 class="text-md font-normal mb-2 text-primary-color">
+                  TeamPulse - Team Management App
+                </h2>
+                <p class="text-sm mb-2">
+                  It works collaboratively with a client-side Windows application to deliver a complete solution for
+                  workforce management.
+                </p>
+                <div>
+                  <button data-popup="projects/team-pulse"
+                    class="popup-button bg-primary-color rounded-3xl py-1 px-3 text-sm inline-block text-gray-900">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
-            <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/cron-job-wordpress.jpg"
+            <img class="object-cover w-full" width="300" height="200" loading="lazy"
+              src="./public/cron-job-wordpress.jpg"
               alt="Block Editor - The Block Editor streamlines HTML creation for dynamic, customizable layouts, empowering efficient web development.">
 
             <div
@@ -441,7 +465,9 @@
                   Cronify - Easy Scheduler
                 </h2>
                 <p class="text-sm mb-2">
-                  This Cron Management app is designed for managing and monitoring cron jobs. It allows users to create cron URLs, view logs of cron executions, and analyze performance metrics such as the time consumed for each cron job.
+                  This Cron Management app is designed for managing and monitoring cron jobs. It allows users to create
+                  cron URLs, view logs of cron executions, and analyze performance metrics such as the time consumed for
+                  each cron job.
                 </p>
                 <div>
                   <button data-popup="projects/cronify"
@@ -452,7 +478,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="bg-custom-bg-light flex-auto rounded-md overflow-hidden group relative">
             <img class="object-cover w-full" width="300" height="200" loading="lazy" src="./public/SSHost.png"
