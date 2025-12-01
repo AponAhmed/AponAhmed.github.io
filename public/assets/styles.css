@@ -1132,6 +1132,10 @@ video {
 .border-yellow-400\/30 {
   border-color: rgb(250 204 21 / 0.3);
 }
+.border-zinc-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(63 63 70 / var(--tw-border-opacity));
+}
 .border-zinc-800 {
   --tw-border-opacity: 1;
   border-color: rgb(39 39 42 / var(--tw-border-opacity));
@@ -1215,6 +1219,9 @@ video {
 .bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+}
+.bg-zinc-800\/50 {
+  background-color: rgb(39 39 42 / 0.5);
 }
 .bg-zinc-900 {
   --tw-bg-opacity: 1;
@@ -2215,6 +2222,10 @@ body.overflow-hidden {
   border-color: rgb(1 238 254 / 0.3);
 }
 
+.hover\:border-primary-color\/50:hover {
+  border-color: rgb(1 238 254 / 0.5);
+}
+
 .hover\:border-primary-dark:hover {
   --tw-border-opacity: 1;
   border-color: rgb(4 137 149 / var(--tw-border-opacity));
@@ -2320,6 +2331,11 @@ body.overflow-hidden {
 
 .hover\:shadow-pink-500\/20:hover {
   --tw-shadow-color: rgb(236 72 153 / 0.2);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.hover\:shadow-primary-color\/10:hover {
+  --tw-shadow-color: rgb(1 238 254 / 0.1);
   --tw-shadow: var(--tw-shadow-colored);
 }
 
