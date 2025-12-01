@@ -321,25 +321,75 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-10 bg-custom-bg-light bg-opacity-50 rounded-xl">
-      <div class="container m-auto">
-        <div class="flex flex-col sm:flex-row">
-          <div class="sm:flex justify-start items-center hidden  md:w-5/12 aspect-w-16 aspect-h-9 pr-10">
-            <img src="./public/about.jpg" width="250" style="mix-blend-mode: soft-light;" height="272"
-              class="bg-blend-soft-light object-cover object-center w-full rounded-md" alt="About  - Image Apon Ahmed">
+    <section id="about" class="py-20  relative overflow-hidden">
+      <!-- Decorative background elements -->
+      <div
+        class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-full blur-xl animate-pulse">
+      </div>
+      <div
+        class="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-teal-400/10 to-cyan-500/10 rounded-full blur-2xl animate-pulse">
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col sm:flex-row items-center gap-12">
+
+          <!-- Image Section -->
+          <div class="sm:flex justify-start items-center hidden md:w-5/12 pr-10">
+            <div class="relative group">
+              <!-- Glowing border effect -->
+              <div
+                class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-teal-500 to-blue-600 rounded-2xl opacity-30 group-hover:opacity-60 blur transition-all duration-300">
+              </div>
+
+              <!-- Image container -->
+              <div
+                class="relative backdrop-blur-sm bg-slate-800/40 border border-white/10 rounded-2xl p-4 transform transition-all duration-500 group-hover:scale-105">
+                <img src="./public/about.jpg" width="250" height="272"
+                  class="object-cover object-center w-full opacity-30 rounded-xl shadow-2xl" alt="About - Image Apon Ahmed">
+              </div>
+            </div>
           </div>
-          <div class="flex  justify-center flex-col w-full md:w-7/12">
-            <h3 class="text-3xl font-bold">About <span class="text-primary-light">Me</span></h3>
-            <p class="my-4">I aspire to establish a prominent presence as a software developer within an integrated
-              business solution provider, actively contributing to the substantial growth of the company.<br>
-              Concurrently, I seek to ensure my personal advancement within the organization. I am confident that my
-              robust technical acumen, comprehensive functional skills, and adept communication abilities will equip me
-              to successfully tackle the challenging career trajectory that lies ahead</p>
+
+          <!-- Content Section -->
+          <div class="flex justify-center flex-col w-full md:w-7/12">
+            <!-- Title -->
+            <h3 class="font-bold text-2xl mb-2">About <span class="text-primary-light">Me</span></h3>
+            <!-- Description -->
+            <div class="space-y-6 mb-10">
+              <p
+                class="text-gray-300 text-lg leading-relaxed backdrop-blur-sm bg-slate-800/30 p-6 rounded-xl border border-white/5">
+                I aspire to establish a prominent presence as a
+                <span class="text-cyan-400 font-medium">software developer</span>
+                within an integrated business solution provider, actively contributing to the substantial growth of the
+                company.
+              </p>
+              <p
+                class="text-gray-400 leading-relaxed backdrop-blur-sm bg-slate-800/20 p-6 rounded-xl border border-white/5">
+                Concurrently, I seek to ensure my personal advancement within the organization. I am confident that my
+                <span class="text-teal-400 font-medium">robust technical acumen</span>,
+                comprehensive functional skills, and adept communication abilities will equip me to successfully tackle
+                the challenging career trajectory that lies ahead.
+              </p>
+            </div>
+
+            <!-- Call to Action -->
             <div>
-              <a href="#" data-popup="skills"
-                class="z-[-1] popup-button bg-primary-color rounded-3xl py-2 px-5 inline-block text-gray-900">Explore My
-                Skills
-              </a>
+              <button data-popup="skills"
+                class="popup-button group relative bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-400 hover:to-teal-500 text-white font-semibold py-4 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden">
+                <!-- Shimmer effect -->
+                <div
+                  class="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500">
+                </div>
+
+                <span class=" pointer-events-none relative flex items-center gap-3">
+                  Explore My Skills
+                  <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+              </button>
             </div>
           </div>
         </div>
