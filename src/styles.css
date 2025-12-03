@@ -18,7 +18,7 @@ html body {
   border-radius: 0px;
   padding-top: 0;
   padding-bottom: 0;
-  z-index: 2;
+  z-index: 30;
 }
 
 .zi-10 {
@@ -152,12 +152,12 @@ body.overflow-hidden {
 
 /* BB8 */
 .bb8 {
-	position: fixed;
-	margin-left: -26.25px;
-	width: 52.5px;
-	bottom: 2px;
-	left: 0;
-	z-index: 99999;
+  position: fixed;
+  margin-left: -26.25px;
+  width: 52.5px;
+  bottom: 2px;
+  left: 0;
+  z-index: 99999;
 }
 
 .antennas {
