@@ -27,3 +27,5 @@ https://aponahmed.github.io/services/desktop-app-development.html
 https://aponahmed.github.io/services/ecommerce-solutions.html
 https://aponahmed.github.io/services/server-management.html
 https://aponahmed.github.io/services/technology-consultation.html
+
+https://aponahmed.github.io/blogs/binary-activity-aggregation.html

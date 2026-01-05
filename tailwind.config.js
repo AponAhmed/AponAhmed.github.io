@@ -5,6 +5,7 @@ module.exports = {
     "*.js",
     "./services/**/*.html", // Include all html files
     "./projects/**/*.html", // Include all html files
+    "./blogs/**/*.html", // Include all html files
     "./pages/**/*.html", // Include all html files
     "./popups/**/*.html", // Include all html files
   ],
