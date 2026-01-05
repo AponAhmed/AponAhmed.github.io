@@ -2042,10 +2042,10 @@
                 color: #fff;
             }
         `;
-    //document.head.appendChild(style);
+    document.head.appendChild(style);
 
-    // document.body.insertAdjacentHTML('beforeend', chatbotHTML);
-    //let starter = document.getElementById('chatbot-starter');
+    document.body.insertAdjacentHTML('beforeend', chatbotHTML);
+    let starter = document.getElementById('chatbot-starter');
     const messagesToShow = 10; // Number of messages to show initially
     let lastIndex = 0;
     let inProcess = false;
@@ -2057,15 +2057,15 @@
     let blinkInterval;
 
     // // Handle mouseover and mouseout to control hover effect and blinking
-    // document.querySelector('svg#chat').addEventListener('mouseover', () => {
-    //   isHovering = true;
-    //   stopBlinking();
-    // });
+     document.querySelector('svg#chat').addEventListener('mouseover', () => {
+       isHovering = true;
+       stopBlinking();
+     });
 
-    // document.querySelector('svg#chat').addEventListener('mouseout', () => {
-    //   isHovering = false;
-    //   startBlinking();
-    // });
+    document.querySelector('svg#chat').addEventListener('mouseout', () => {
+       isHovering = false;
+       startBlinking();
+     });
     function blinkEyes() {
       console.log('blinking');
       const leftEye = document.querySelector('.eye-left');
