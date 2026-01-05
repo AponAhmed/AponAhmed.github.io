@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecting Resilient ERP Systems | Apon Ahmed Blog</title>
+    <meta name="description"
+        content="Lessons learned from 3 years of building a full-scale ERP system. A deep dive into module integration, data consistency, and role-based security." />
+    <meta name="keywords"
+        content="ERP Architecture, PHP, MySQL, Business Software, Module Integration, Enterprise Development, Apon Ahmed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://aponahmed.github.io/blogs/architecting-resilient-erp-systems.html" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Architecting Resilient ERP Systems | Apon Ahmed" />
+    <meta property="og:description"
+        content="Technical strategies for building and maintaining large-scale, integrated Enterprise Resource Planning systems." />
+    <meta property="og:image" content="https://aponahmed.github.io/public/erp.jpg" />
+    <meta property="og:url" content="https://aponahmed.github.io/blogs/architecting-resilient-erp-systems.html" />
+
+    <link rel="icon" type="image/png" href="../public/fav/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../public/fav/48x48.png" sizes="48x48">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/styles.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Architecting Resilient ERP Systems: 3 Years of Lessons",
+      "author": {
+        "@type": "Person",
+        "name": "Muhiminul Haque Apon",
+        "url": "https://aponahmed.github.io"
+      },
+      "description": "A technical retrospective on building a multifaceted ERP system from scratch using PHP and MySQL.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Apon Ahmed"
+      }
+    }
+    </script>
+    <style>
+        .c-font {
+            font-family: 'Lobster', cursive;
+        }
+
+        .code-block {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        .gradient-heading {
+            background: linear-gradient(135deg, #FF9933, #FFCC33);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-b from-primary-dark-full from-60% to-primary-dark bg-fixed text-gray-200 font-light leading-5">
+    <header id="home" class="py-4">
+        <nav class="container m-auto">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex items-center w-full justify-start sm:items-stretch sm:justify-between">
+                    <div class="flex flex-shrink-0 items-center">
+                        <div class="text-2xl font-bold flex items-center c-font">
+                            <a href="../index.html"><span class="text-primary-dark">Mh .</span>&nbsp;Apon</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="../index.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+                            <a href="../index.html#about"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+                            <a href="../index.html#service"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Expertise</a>
+                            <a href="../index.html#project"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                            <a href="../index.html#contact"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-[1040px] flex flex-col min-h-screen lg:my-10 mx-auto px-4">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li><a href="../index.html" class="text-primary-color hover:text-primary-light">Home</a></li>
+                <li class="text-gray-500">/</li>
+                <li><a href="../index.html#blogs" class="text-primary-color hover:text-primary-light">Blogs</a></li>
+                <li class="text-gray-500">/</li>
+                <li class="text-gray-400">ERP Architecture</li>
+            </ol>
+        </nav>
+
+        <!-- Article Header -->
+        <article class="mb-12">
+            <header class="mb-12 pb-8 border-b border-zinc-800 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-heading uppercase tracking-tight">Architecting
+                    Resilient ERP Systems</h1>
+                <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto">Lessons learned from 3 years of building
+                    an integrated enterprise platform.</p>
+            </header>
+
+            <!-- The Challenge -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8 italic">The Giant Multi-Headed Beast</h2>
+                <div class="bg-zinc-900/50 p-8 rounded-lg border border-zinc-800">
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Building an ERP isn't just about coding; it's about modeling a business. When I set out to build
+                        our custom ERP platform, I was faced with 6 major modules: Accounts, HR, Sales, Order
+                        Management, CRM, and Banking. The real challenge? **Data Consistency**.
+                    </p>
+                    <p class="text-gray-400 text-xs italic">
+                        "In an ERP, a ripple in Sales must be an accurately reflected wave in Accounts and Inventory."
+                    </p>
+                </div>
+            </section>
+
+            <!-- Modular Design Section -->
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-primary-color mb-6 uppercase tracking-wider">Strategy 1: Event-Driven
+                    Module Sync</h3>
+                <p class="text-gray-300 mb-6">To prevent tight coupling between modules (like HR and Payroll), we
+                    implemented a service-based architecture where modules communicate through defined internal APIs.
+                    For example, when a sale is finalized, the Sales module triggers an 'Accounting Event'.</p>
+                <div class="bg-black/40 p-5 rounded code-block text-xs text-yellow-400 leading-relaxed overflow-x-auto">
+                    <pre><code><span class="text-gray-500">// Pseudo-code: Decoupled Transaction Logging</span>
+<span class="text-blue-400">class</span> <span class="text-green-400">SalesManager</span> {
+    <span class="text-blue-400">public</span> <span class="text-blue-400">function</span> <span class="text-green-400">completeOrder</span>($orderId) {
+        <span class="text-gray-500">// 1. Finalize Order Logic</span>
+        $order = $this->db->finalize($orderId);
+        
+        <span class="text-gray-500">// 2. Notify Accounting (Decoupled)</span>
+        <span class="text-yellow-400">AccountingBridge</span>::<span class="text-green-400">recordSale</span>($order->total, <span class="text-orange-400">'SALES-INVOICE'</span>, $orderId);
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- RBAC Section -->
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-primary-color mb-6 uppercase tracking-wider">Strategy 2: Granular
+                    Role-Based Access (RBAC)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Security in an ERP is non-negotiable. We built a hierarchical RBAC system that controls not just
+                        "pages," but specific actions (create, edit, delete, approve) across every module. This allows a
+                        'Sales Junior' to create leads but requires a 'Sales Manager' to approve discount levels.
+                    </p>
+                    <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-lg shadow-inner">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <span class="text-[10px] text-gray-500 uppercase font-bold">Access Matrix</span>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between text-[11px] text-gray-400 border-b border-zinc-800 pb-2">
+                                <span>Sales Report</span>
+                                <span class="text-green-500">READ-ONLY</span>
+                            </li>
+                            <li class="flex justify-between text-[11px] text-gray-400 border-b border-zinc-800 pb-2">
+                                <span>Bank Transfer</span>
+                                <span class="text-red-500">DENIED</span>
+                            </li>
+                            <li class="flex justify-between text-[11px] text-gray-400 border-b border-zinc-800 pb-2">
+                                <span>Employee File</span>
+                                <span class="text-blue-500">EDIT-ONLY</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reporting Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8 italic">Actionable Intelligence</h2>
+                <div class="bg-zinc-900 border-l-4 border-primary-color p-8 rounded-r-lg">
+                    <p class="text-gray-300 leading-relaxed">
+                        Data is useless without context. The ERP features a real-time analytics engine that processes
+                        thousands of rows to generate cross-module insights—like comparing **Lead Conversion Speed**
+                        against **Sales Rep Payroll**.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Final Takeaway -->
+            <section class="mb-16 bg-zinc-900/80 p-10 rounded-xl border border-zinc-800 text-center">
+                <h3 class="text-2xl font-bold text-primary-color mb-4 tracking-tighter uppercase italic">The Marathon
+                    Mindset</h3>
+                <p class="text-gray-400 max-w-3xl mx-auto mb-8">
+                    "Building an ERP is a marathon, not a sprint. Over 3 years, the most important lesson I learned was
+                    to build for change. Businesses evolve, laws change, and workflows adapt. A resilient architecture
+                    is one that doesn't just work today, but can be reshaped for tomorrow."
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="p-4 bg-zinc-950 rounded border border-zinc-800">
+                        <div class="text-xl font-bold text-white">6+</div>
+                        <div class="text-[9px] text-gray-500 uppercase">Modules</div>
+                    </div>
+                    <div class="p-4 bg-zinc-950 rounded border border-zinc-800">
+                        <div class="text-xl font-bold text-white">3yrs</div>
+                        <div class="text-[9px] text-gray-500 uppercase">Dev Span</div>
+                    </div>
+                    <div class="p-4 bg-zinc-950 rounded border border-zinc-800">
+                        <div class="text-xl font-bold text-white">100%</div>
+                        <div class="text-[9px] text-gray-500 uppercase">Integrated</div>
+                    </div>
+                    <div class="p-4 bg-zinc-950 rounded border border-zinc-800">
+                        <div class="text-xl font-bold text-white">Scale</div>
+                        <div class="text-[9px] text-gray-500 uppercase">Enterprise</div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- Navigation -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 py-8 border-t border-zinc-800">
+            <a href="modern-task-scheduling-laravel.html"
+                class="group flex items-center gap-4 text-gray-400 hover:text-primary-color transition-colors">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <div class="text-right">
+                    <div class="text-xs text-gray-600 uppercase">Previous Post</div>
+                    <div class="font-semibold">Modern Task Scheduling</div>
+                </div>
+            </a>
+            <div class="hidden md:block w-px h-12 bg-zinc-800"></div>
+            <a href="../index.html#blogs" class="text-primary-color hover:text-primary-light font-semibold">View All
+                Blogs</a>
+        </div>
+    </main>
+
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-8 mt-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+                <div class="text-gray-500 text-sm">&copy; 2026 Muhiminul Haque Apon. All rights reserved.</div>
+                <div class="flex gap-6">
+                    <a href="../index.html" class="text-gray-400 hover:text-primary-color transition-colors">Home</a>
+                    <a href="../index.html#project"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Projects</a>
+                    <a href="../index.html#contact"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

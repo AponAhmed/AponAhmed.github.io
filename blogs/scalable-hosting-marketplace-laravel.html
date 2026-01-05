@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building a Scalable Hosting Marketplace with Laravel | Apon Ahmed Blog</title>
+    <meta name="description"
+        content="Exploring the architecture of SSHost: A robust Laravel backend for web hosting reseller management with API automation and payment integration." />
+    <meta name="keywords" content="Laravel, Web Hosting, Reseller Platform, API Automation, Stripe, PHP, Apon Ahmed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://aponahmed.github.io/blogs/scalable-hosting-marketplace-laravel.html" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Building a Scalable Hosting Marketplace with Laravel | Apon Ahmed" />
+    <meta property="og:description"
+        content="Technical deep dive into automating hosting service management and billing using Laravel." />
+    <meta property="og:image" content="https://aponahmed.github.io/public/SSHost.png" />
+    <meta property="og:url" content="https://aponahmed.github.io/blogs/scalable-hosting-marketplace-laravel.html" />
+
+    <link rel="icon" type="image/png" href="../public/fav/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../public/fav/48x48.png" sizes="48x48">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/styles.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Building a Scalable Hosting Marketplace with Laravel",
+      "author": {
+        "@type": "Person",
+        "name": "Muhiminul Haque Apon",
+        "url": "https://aponahmed.github.io"
+      },
+      "description": "Architectural strategies for automating web hosting management and reseller cycles using Laravel and REST APIs.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Apon Ahmed"
+      }
+    }
+    </script>
+    <style>
+        .c-font {
+            font-family: 'Lobster', cursive;
+        }
+
+        .code-block {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        .gradient-heading {
+            background: linear-gradient(135deg, #00C6FF, #0072FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-b from-primary-dark-full from-60% to-primary-dark bg-fixed text-gray-200 font-light leading-5">
+    <header id="home" class="py-4">
+        <nav class="container m-auto">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex items-center w-full justify-start sm:items-stretch sm:justify-between">
+                    <div class="flex flex-shrink-0 items-center">
+                        <div class="text-2xl font-bold flex items-center c-font">
+                            <a href="../index.html"><span class="text-primary-dark">Mh .</span>&nbsp;Apon</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="../index.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+                            <a href="../index.html#about"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+                            <a href="../index.html#service"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Expertise</a>
+                            <a href="../index.html#project"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                            <a href="../index.html#contact"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-[1040px] flex flex-col min-h-screen lg:my-10 mx-auto px-4">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li><a href="../index.html" class="text-primary-color hover:text-primary-light">Home</a></li>
+                <li class="text-gray-500">/</li>
+                <li><a href="../index.html#blogs" class="text-primary-color hover:text-primary-light">Blogs</a></li>
+                <li class="text-gray-500">/</li>
+                <li class="text-gray-400">Hosting Marketplace</li>
+            </ol>
+        </nav>
+
+        <!-- Article Header -->
+        <article class="mb-12">
+            <header class="mb-12 pb-8 border-b border-zinc-800 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-heading uppercase tracking-tight">Building a
+                    Scalable Hosting Marketplace</h1>
+                <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto">Automating the lifecycle of web hosting
+                    services with Laravel.</p>
+            </header>
+
+            <!-- Automation Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8 italic">The API-First Mandate</h2>
+                <div class="bg-zinc-900/50 p-8 rounded-lg border border-zinc-800">
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        In the hosting industry, speed is everything. A customer expects their server to be ready
+                        seconds after payment. To achieve this with <strong>SSHost</strong>, we built a robust
+                        automation layer that interacts with WHM/cPanel and WHMCS APIs.
+                    </p>
+                    <p class="text-gray-400 text-sm font-bold uppercase tracking-widest text-center mb-4">Automation
+                        Flow</p>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                        <div class="bg-zinc-800 px-6 py-3 rounded-lg border border-zinc-700 text-[11px] text-white">
+                            Payment Received</div>
+                        <svg class="w-6 h-6 text-primary-color rotate-90 md:rotate-0" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <div
+                            class="bg-primary-dark/20 px-6 py-3 rounded-lg border border-primary-color text-[11px] text-primary-color font-bold">
+                            API Provisioning</div>
+                        <svg class="w-6 h-6 text-primary-color rotate-90 md:rotate-0" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <div class="bg-zinc-800 px-6 py-3 rounded-lg border border-zinc-700 text-[11px] text-white">
+                            Welcome Email Sent</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dynamic Pricing Section -->
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-100 mb-6 uppercase tracking-wider">Strategy 1: Dynamic Tiered
+                    Billing</h3>
+                <p class="text-gray-300 mb-6">Traditional billing is static. For SSHost, we implemented a dynamic
+                    pricing engine in Laravel that calculates costs based on resource allocation (CPU, RAM, Disk) in
+                    real-time, allowing for flexible "Pay-as-you-go" models.</p>
+                <div class="bg-black/40 p-5 rounded code-block text-xs text-blue-400 leading-relaxed overflow-x-auto">
+                    <pre><code><span class="text-gray-500">// App/Services/BillingCalculator.php</span>
+<span class="text-blue-400">public function</span> <span class="text-green-400">calculateMonthlyRate</span>(Plan $plan) {
+    $base = $plan->base_price;
+    $addons = $plan->resources->sum(<span class="text-blue-400">function</span>($res) {
+        <span class="text-blue-400">return</span> $res->pivot->quantity * $res->unit_price;
+    });
+    <span class="text-blue-400">return</span> ($base + $addons) * (1 - $plan->discount_rate);
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-100 mb-6 uppercase tracking-wider">Strategy 2: The Multi-Layer
+                    Proxy</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Exposing backend server APIs directly to the frontend is a security nightmare. SSHost acts as an
+                        intelligent proxy—sanitizing every request, enforcing rate limits, and ensuring that no raw API
+                        credentials ever leave the server.
+                    </p>
+                    <div class="bg-zinc-900 p-8 rounded-xl border-b-4 border-primary-color">
+                        <div class="flex flex-col gap-4">
+                            <div
+                                class="flex justify-between items-center bg-zinc-800 p-3 rounded text-[10px] group hover:bg-zinc-700 transition-colors">
+                                <span class="text-gray-500">Input Sanitation</span>
+                                <span class="text-green-500 font-bold uppercase">Active</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center bg-zinc-800 p-3 rounded text-[10px] group hover:bg-zinc-700 transition-colors">
+                                <span class="text-gray-500">Rate Limiter (60/min)</span>
+                                <span class="text-green-500 font-bold uppercase">Active</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center bg-zinc-800 p-3 rounded text-[10px] group hover:bg-zinc-700 transition-colors">
+                                <span class="text-gray-500">JWT Authentication</span>
+                                <span class="text-green-500 font-bold uppercase">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Takeaway -->
+            <section
+                class="mb-16 bg-zinc-950 p-10 rounded-2xl border border-zinc-800 text-center shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary-color/5 blur-3xl rounded-full"></div>
+                <h3 class="text-2xl font-bold text-primary-light mb-6">The Future of Infrastructure</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-8 font-light italic leading-loose">
+                    "Infrastructure management is moving from manual configuration to programmatic orchestration. SSHost
+                    represents that shift—where the server is no longer a physical entity to be managed, but an API
+                    endpoint to be called."
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="text-center">
+                        <div class="text-xl font-bold text-white">99.9%</div>
+                        <div class="text-[9px] text-gray-600 uppercase">Uptime Core</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xl font-bold text-white">0.5s</div>
+                        <div class="text-[9px] text-gray-600 uppercase">API Latency</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xl font-bold text-white">Secure</div>
+                        <div class="text-[9px] text-gray-600 uppercase">SSL / TLS</div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- Navigation -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 py-8 border-t border-zinc-800">
+            <a href="bridging-desktop-web-email-marketing.html"
+                class="group flex items-center gap-4 text-gray-400 hover:text-primary-color transition-colors">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <div class="text-right">
+                    <div class="text-xs text-gray-600 uppercase">Previous Post</div>
+                    <div class="font-semibold">Bridging Desktop & Web</div>
+                </div>
+            </a>
+            <div class="hidden md:block w-px h-12 bg-zinc-800"></div>
+            <a href="../index.html#blogs" class="text-primary-color hover:text-primary-light font-semibold">View All
+                Blogs</a>
+        </div>
+    </main>
+
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-8 mt-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+                <div class="text-gray-500 text-sm">&copy; 2026 Muhiminul Haque Apon. All rights reserved.</div>
+                <div class="flex gap-6">
+                    <a href="../index.html" class="text-gray-400 hover:text-primary-color transition-colors">Home</a>
+                    <a href="../index.html#project"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Projects</a>
+                    <a href="../index.html#contact"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

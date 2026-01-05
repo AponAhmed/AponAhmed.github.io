@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bridging Desktop & Web: Secure Email Marketing | Apon Ahmed Blog</title>
+    <meta name="description"
+        content="Technical insights into building Java-based bulk mailing applications. Learn about Gmail API integration, OAuth2, and SQLite-MySQL data synchronization." />
+    <meta name="keywords"
+        content="Java Swing, Gmail API, Email Marketing, SQLite, MySQL Sync, Desktop App, Apon Ahmed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://aponahmed.github.io/blogs/bridging-desktop-web-email-marketing.html" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Bridging Desktop & Web: Secure Email Marketing | Apon Ahmed" />
+    <meta property="og:description"
+        content="Building high-performance desktop bulk mailers with Java and integrated cloud synchronization." />
+    <meta property="og:image" content="https://aponahmed.github.io/public/bulk-email.jpg" />
+    <meta property="og:url" content="https://aponahmed.github.io/blogs/bridging-desktop-web-email-marketing.html" />
+
+    <link rel="icon" type="image/png" href="../public/fav/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../public/fav/48x48.png" sizes="48x48">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/styles.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Bridging Desktop & Web: Secure Email Marketing",
+      "author": {
+        "@type": "Person",
+        "name": "Muhiminul Haque Apon",
+        "url": "https://aponahmed.github.io"
+      },
+      "description": "A technical dive into building a Java desktop application with Gmail API integration and hybrid database synchronization.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Apon Ahmed"
+      }
+    }
+    </script>
+    <style>
+        .c-font {
+            font-family: 'Lobster', cursive;
+        }
+
+        .code-block {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        .gradient-heading {
+            background: linear-gradient(135deg, #FF3366, #FF99CC);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-b from-primary-dark-full from-60% to-primary-dark bg-fixed text-gray-200 font-light leading-5">
+    <header id="home" class="py-4">
+        <nav class="container m-auto">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex items-center w-full justify-start sm:items-stretch sm:justify-between">
+                    <div class="flex flex-shrink-0 items-center">
+                        <div class="text-2xl font-bold flex items-center c-font">
+                            <a href="../index.html"><span class="text-primary-dark">Mh .</span>&nbsp;Apon</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="../index.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+                            <a href="../index.html#about"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+                            <a href="../index.html#service"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Expertise</a>
+                            <a href="../index.html#project"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                            <a href="../index.html#contact"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-[1040px] flex flex-col min-h-screen lg:my-10 mx-auto px-4">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li><a href="../index.html" class="text-primary-color hover:text-primary-light">Home</a></li>
+                <li class="text-gray-500">/</li>
+                <li><a href="../index.html#blogs" class="text-primary-color hover:text-primary-light">Blogs</a></li>
+                <li class="text-gray-500">/</li>
+                <li class="text-gray-400">Desktop & Web Sync</li>
+            </ol>
+        </nav>
+
+        <!-- Article Header -->
+        <article class="mb-12">
+            <header class="mb-12 pb-8 border-b border-zinc-800 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-heading uppercase tracking-tight">Bridging
+                    Desktop & Web: Secure Email Marketing</h1>
+                <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto">Mastering hybrid database sync and Gmail
+                    API integration in Java.</p>
+            </header>
+
+            <!-- Concept Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8 italic">The "Offline-First" Power</h2>
+                <div class="bg-zinc-900/50 p-8 rounded-lg border border-zinc-800">
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        While the world moves to the web, desktop applications still offer unmatched power for
+                        heavy-duty tasks. When I built the <strong>Bulk Mailer Desktop</strong>, I wanted the speed of
+                        local processing combined with the reach of the cloud. The key was a hybrid architecture using
+                        **SQLite** for local performance and **MySQL** for remote synchronization.
+                    </p>
+                    <div class="flex justify-center gap-8 items-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white mb-1 tracking-widest uppercase">SQLite</div>
+                            <div class="text-[9px] text-gray-500 uppercase">Local Speed</div>
+                        </div>
+                        <div class="w-12 h-px bg-zinc-800"></div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary-color mb-1">SYNC</div>
+                            <div class="text-[9px] text-gray-500 uppercase tracking-tighter">Conflict Resolution</div>
+                        </div>
+                        <div class="w-12 h-px bg-zinc-800"></div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white mb-1 tracking-widest uppercase">MySQL</div>
+                            <div class="text-[9px] text-gray-500 uppercase">Cloud Source</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gmail API Section -->
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-primary-color mb-6 uppercase tracking-wider">The OAuth2 & Gmail API
+                    Challenge</h3>
+                <p class="text-gray-300 mb-6">Authenticating multiple Google accounts in a desktop environment is
+                    complex. We implemented an embedded local server to handle OAuth2 callbacks, allowing users to
+                    securely grant permissions without ever sharing their passwords.</p>
+                <div class="bg-black/40 p-5 rounded code-block text-xs text-green-400 leading-relaxed overflow-x-auto">
+                    <pre><code><span class="text-gray-500">// Pseudo-code: OAuth2 Flow for Desktop</span>
+<span class="text-blue-400">public void</span> <span class="text-green-400">authenticateAccount</span>() {
+    <span class="text-yellow-400">LocalReceiver</span> receiver = <span class="text-blue-400">new</span> <span class="text-yellow-400">LocalServerReceiver</span>.Builder().setPort(8888).build();
+    <span class="text-yellow-400">Credential</span> credential = <span class="text-blue-400">new</span> <span class="text-yellow-400">GoogleAuthorizationCodeFlow</span>.Builder(...)
+        .setDataStoreFactory(DATA_STORE_FACTORY)
+        .build()
+        .authorize(USER_ID, receiver);
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- HTML Editor Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8">WYSIWYG in Swing</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        To give users total creative control, we built a custom HTML editor using
+                        <code>JEditorPane</code> and <code>StyledEditorKit</code>. This allows for rich text formatting,
+                        image embedding, and structural HTML creation entirely offline, which is then serialized and
+                        sent as a multi-part MIME message through the Gmail API.
+                    </p>
+                    <div class="p-6 bg-zinc-900 rounded border border-zinc-800">
+                        <h4 class="text-xs font-bold text-white uppercase mb-4 tracking-widest">Editor Features</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-2 text-[10px] text-gray-500">
+                                <span class="w-1.5 h-1.5 bg-primary-color rounded-full"></span>
+                                Real-time HTML Preview
+                            </li>
+                            <li class="flex items-center gap-2 text-[10px] text-gray-500">
+                                <span class="w-1.5 h-1.5 bg-primary-color rounded-full"></span>
+                                Inline Image Serialization
+                            </li>
+                            <li class="flex items-center gap-2 text-[10px] text-gray-500">
+                                <span class="w-1.5 h-1.5 bg-primary-color rounded-full"></span>
+                                CSS Stylesheet Injection
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Takeaway -->
+            <section
+                class="mb-16 bg-gradient-to-r from-zinc-950 to-zinc-900 p-10 rounded-2xl border border-zinc-800 text-center">
+                <h3 class="text-2xl font-bold text-primary-light mb-6 uppercase tracking-tighter">Efficiency Redefined
+                </h3>
+                <p class="text-gray-400 max-w-2xl mx-auto italic leading-relaxed">
+                    "A successful desktop application today must be a cloud-native citizen. By bridging local
+                    performance with global APIs, we created a tool that respects the user's local resources while
+                    providing the infinite scalability of the web."
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <span
+                        class="px-5 py-2 bg-zinc-800 rounded-3xl text-[9px] font-bold text-primary-color uppercase border border-zinc-700">Native
+                        Performance</span>
+                    <span
+                        class="px-5 py-2 bg-zinc-800 rounded-3xl text-[9px] font-bold text-primary-color uppercase border border-zinc-700">Cloud
+                        Sync</span>
+                    <span
+                        class="px-5 py-2 bg-zinc-800 rounded-3xl text-[9px] font-bold text-primary-color uppercase border border-zinc-700">OAuth2
+                        Secure</span>
+                </div>
+            </section>
+        </article>
+
+        <!-- Navigation -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 py-8 border-t border-zinc-800">
+            <a href="architecting-resilient-erp-systems.html"
+                class="group flex items-center gap-4 text-gray-400 hover:text-primary-color transition-colors">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <div class="text-right">
+                    <div class="text-xs text-gray-600 uppercase">Previous Post</div>
+                    <div class="font-semibold">Architecting Resilient ERP</div>
+                </div>
+            </a>
+            <div class="hidden md:block w-px h-12 bg-zinc-800"></div>
+            <a href="../index.html#blogs" class="text-primary-color hover:text-primary-light font-semibold">View All
+                Blogs</a>
+        </div>
+    </main>
+
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-8 mt-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+                <div class="text-gray-500 text-sm">&copy; 2026 Muhiminul Haque Apon. All rights reserved.</div>
+                <div class="flex gap-6">
+                    <a href="../index.html" class="text-gray-400 hover:text-primary-color transition-colors">Home</a>
+                    <a href="../index.html#project"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Projects</a>
+                    <a href="../index.html#contact"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

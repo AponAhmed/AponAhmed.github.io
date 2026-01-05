@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automated Cloud Backups at Scale | Apon Ahmed Blog</title>
+    <meta name="description"
+        content="Technical strategies for building reliable WordPress backup systems. Learn about zip compression, database dumping, and secure FTP/Cloud transfers." />
+    <meta name="keywords"
+        content="WordPress Backup, Cloud Storage, PHP Automation, Database Backup, FTP, Web Performance, Apon Ahmed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://aponahmed.github.io/blogs/automated-cloud-backups.html" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Automated Cloud Backups at Scale | Apon Ahmed" />
+    <meta property="og:description"
+        content="Mastering large-scale data transfers and reliable backup architectures for modern web applications." />
+    <meta property="og:image" content="https://aponahmed.github.io/public/projects/backup/backup.png" />
+    <meta property="og:url" content="https://aponahmed.github.io/blogs/automated-cloud-backups.html" />
+
+    <link rel="icon" type="image/png" href="../public/fav/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../public/fav/48x48.png" sizes="48x48">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/styles.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Automated Cloud Backups at Scale",
+      "author": {
+        "@type": "Person",
+        "name": "Muhiminul Haque Apon",
+        "url": "https://aponahmed.github.io"
+      },
+      "description": "Strategies for handling multi-gigabyte backups and secure remote transfers in a PHP/WordPress environment.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Apon Ahmed"
+      }
+    }
+    </script>
+    <style>
+        .c-font {
+            font-family: 'Lobster', cursive;
+        }
+
+        .code-block {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        .gradient-heading {
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-b from-primary-dark-full from-60% to-primary-dark bg-fixed text-gray-200 font-light leading-5">
+    <header id="home" class="py-4">
+        <nav class="container m-auto">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex items-center w-full justify-start sm:items-stretch sm:justify-between">
+                    <div class="flex flex-shrink-0 items-center">
+                        <div class="text-2xl font-bold flex items-center c-font">
+                            <a href="../index.html"><span class="text-primary-dark">Mh .</span>&nbsp;Apon</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="../index.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+                            <a href="../index.html#about"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+                            <a href="../index.html#service"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Expertise</a>
+                            <a href="../index.html#project"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                            <a href="../index.html#contact"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-[1040px] flex flex-col min-h-screen lg:my-10 mx-auto px-4">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li><a href="../index.html" class="text-primary-color hover:text-primary-light">Home</a></li>
+                <li class="text-gray-500">/</li>
+                <li><a href="../index.html#blogs" class="text-primary-color hover:text-primary-light">Blogs</a></li>
+                <li class="text-gray-500">/</li>
+                <li class="text-gray-400">Cloud Backups</li>
+            </ol>
+        </nav>
+
+        <!-- Article Header -->
+        <article class="mb-12">
+            <header class="mb-12 pb-8 border-b border-zinc-800 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-heading uppercase tracking-tight">Automated
+                    Cloud Backups at Scale</h1>
+                <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto">Ensuring data integrity through optimized
+                    compression and secure remote transfers.</p>
+            </header>
+
+            <!-- The Criticality Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8 italic">Why "Standard" Backups Fail</h2>
+                <div class="bg-zinc-900/50 p-8 rounded-lg border border-zinc-800">
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Data loss is a nightmare. But for many WordPress users, the backup process itself is a source of
+                        failure. When building the <strong>WP Backup</strong> plugin, I had to solve three major
+                        technical hurdles: <strong>PHP execution timeouts</strong>, <strong>memory exhaustion</strong>,
+                        and <strong>secure transport</strong>.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 bg-red-500/5 rounded-lg border border-red-500/10">
+                            <h4 class="text-red-400 font-bold text-xs uppercase mb-2">Timeout</h4>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Large ZIP creation often
+                                exceeds the default 30s limit.</p>
+                        </div>
+                        <div class="p-6 bg-yellow-500/5 rounded-lg border border-yellow-500/10">
+                            <h4 class="text-yellow-400 font-bold text-xs uppercase mb-2">DB Size</h4>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Large SQL dumps can cripple
+                                shared hosting databases.</p>
+                        </div>
+                        <div class="p-6 bg-blue-500/5 rounded-lg border border-blue-500/10">
+                            <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">Security</h4>
+                            <p class="text-[10px] text-gray-500 uppercase tracking-widest">Raw backups sitting in public
+                                directories are high-risk.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Implementation: Recursive Archiving -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8">Recursive Archiving & Exclusion</h2>
+                <p class="text-gray-300 mb-6">Efficiency starts with what you <em>don't</em> backup. Our implementation
+                    utilizes recursive iterators with configurable exclusion rules to skip heavy, non-essential folders
+                    like <code>/wp-content/cache</code>.</p>
+                <div class="bg-black/40 p-5 rounded code-block text-xs text-cyan-400 leading-relaxed overflow-x-auto">
+                    <pre><code><span class="text-gray-500">// Efficient Recursive Zipping</span>
+<span class="text-blue-400">function</span> <span class="text-green-400">create_archive</span>($source, $destination, $exclude_list) {
+    $zip = <span class="text-blue-400">new</span> <span class="text-yellow-400">ZipArchive</span>();
+    $zip->open($destination, <span class="text-yellow-400">ZipArchive</span>::CREATE);
+    
+    $files = <span class="text-blue-400">new</span> <span class="text-yellow-400">RecursiveIteratorIterator</span>(
+        <span class="text-blue-400">new</span> <span class="text-yellow-400">RecursiveDirectoryIterator</span>($source)
+    );
+    
+    <span class="text-blue-400">foreach</span>($files <span class="text-blue-400">as</span> $file) {
+        <span class="text-blue-400">if</span> (<span class="text-yellow-400">InclusionManager</span>::is_clean($file, $exclude_list)) {
+            $zip->addFile($file->getRealPath(), $relative_path);
+        }
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Secure Transport Section -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8">Secure Remote Synchronization</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            A backup isn't a backup until it's off-site. <strong>WP Backup</strong> implements a robust
+                            FTP/SFTP transport layer that uses temporary file streams to minimize disk usage on the
+                            local server.
+                        </p>
+                        <p class="text-gray-400 text-sm">
+                            By leveraging <code>ftp_fput</code>, we stream data directly from the local disk to the
+                            remote server, bypassing PHP's memory limits for large file handling.
+                        </p>
+                    </div>
+                    <div class="bg-zinc-900 p-8 rounded-xl border border-zinc-800">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-500">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold">Zero-Memory Streaming</h4>
+                        </div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-500">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold">AES-256 DB Encryption</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Takeaway -->
+            <section class="mb-16 bg-zinc-900 rounded-md p-10 border border-primary-dark/30 text-center">
+                <h2 class="text-2xl font-bold text-primary-light mb-6 uppercase">The Architect's Rule</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto italic">
+                    "Reliability is the only metric that matters for backups. By architecting for the worst-case
+                    scenario—limited memory, unstable connections, and heavy data—we built a system that users can trust
+                    with their most valuable assets."
+                </p>
+                <div class="mt-8 flex justify-center items-center gap-8">
+                    <div>
+                        <div class="text-4xl font-bold text-white tracking-tighter">100%</div>
+                        <div class="text-[10px] text-gray-500 uppercase">Success Rate</div>
+                    </div>
+                    <div class="w-px h-10 bg-zinc-800"></div>
+                    <div>
+                        <div class="text-4xl font-bold text-white tracking-tighter">&lt;5 min</div>
+                        <div class="text-[10px] text-gray-500 uppercase">Avg transfer</div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- Related Posts / Navigation -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 py-8 border-t border-zinc-800">
+            <a href="custom-wysiwyg-block-editor.html"
+                class="group flex items-center gap-4 text-gray-400 hover:text-primary-color transition-colors">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <div class="text-right">
+                    <div class="text-xs text-gray-600 uppercase">Previous Post</div>
+                    <div class="font-semibold">Custom Block Editor</div>
+                </div>
+            </a>
+            <div class="hidden md:block w-px h-12 bg-zinc-800"></div>
+            <a href="../index.html#blogs" class="text-primary-color hover:text-primary-light font-semibold">View All
+                Blogs</a>
+        </div>
+    </main>
+
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-8 mt-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+                <div class="text-gray-500 text-sm">&copy; 2026 Muhiminul Haque Apon. All rights reserved.</div>
+                <div class="flex gap-6">
+                    <a href="../index.html" class="text-gray-400 hover:text-primary-color transition-colors">Home</a>
+                    <a href="../index.html#project"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Projects</a>
+                    <a href="../index.html#contact"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

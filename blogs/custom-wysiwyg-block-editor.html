@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building a Custom WYSIWYG Block Editor | Apon Ahmed Blog</title>
+    <meta name="description"
+        content="Technical guide on architecting modular, drag-and-drop HTML layout builders. Learn about component registries, DOM builders, and resizable layout logic." />
+    <meta name="keywords"
+        content="Block Editor, WYSIWYG, Web Development Tools, JavaScript, Component Architecture, HTML Layouts, Apon Ahmed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://aponahmed.github.io/blogs/custom-wysiwyg-block-editor.html" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Building a Custom WYSIWYG Block Editor | Apon Ahmed" />
+    <meta property="og:description"
+        content="How to build a modular, extensible HTML layout builder from scratch using modern JavaScript and component-based design." />
+    <meta property="og:image" content="https://aponahmed.github.io/public/block-editor.jpg" />
+    <meta property="og:url" content="https://aponahmed.github.io/blogs/custom-wysiwyg-block-editor.html" />
+
+    <link rel="icon" type="image/png" href="../public/fav/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../public/fav/48x48.png" sizes="48x48">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/styles.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Building a Custom WYSIWYG Block Editor: A Modular Approach",
+      "author": {
+        "@type": "Person",
+        "name": "Muhiminul Haque Apon",
+        "url": "https://aponahmed.github.io"
+      },
+      "description": "Architectural patterns for creating extensible web-based layout editors using component registries and dynamic DOM building.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Apon Ahmed"
+      }
+    }
+    </script>
+    <style>
+        .c-font {
+            font-family: 'Lobster', cursive;
+        }
+
+        .code-block {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        .gradient-heading {
+            background: linear-gradient(135deg, #01eefe, #0CFF8D);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-b from-primary-dark-full from-60% to-primary-dark bg-fixed text-gray-200 font-light leading-5">
+    <header id="home" class="py-4">
+        <nav class="container m-auto">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex items-center w-full justify-start sm:items-stretch sm:justify-between">
+                    <div class="flex flex-shrink-0 items-center">
+                        <div class="text-2xl font-bold flex items-center c-font">
+                            <a href="../index.html"><span class="text-primary-dark">Mh .</span>&nbsp;Apon</a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="../index.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+                            <a href="../index.html#about"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+                            <a href="../index.html#service"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Expertise</a>
+                            <a href="../index.html#project"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                            <a href="../index.html#contact"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-[1040px] flex flex-col min-h-screen lg:my-10 mx-auto px-4">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li><a href="../index.html" class="text-primary-color hover:text-primary-light">Home</a></li>
+                <li class="text-gray-500">/</li>
+                <li><a href="../index.html#blogs" class="text-primary-color hover:text-primary-light">Blogs</a></li>
+                <li class="text-gray-500">/</li>
+                <li class="text-gray-400">Building Block Editor</li>
+            </ol>
+        </nav>
+
+        <!-- Article Header -->
+        <article class="mb-12">
+            <header class="mb-12 pb-8 border-b border-zinc-800 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-heading uppercase tracking-tight">Building a
+                    Custom WYSIWYG Block Editor</h1>
+                <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto">Architecting modular, drag-and-drop HTML
+                    layout builders from the ground up.</p>
+            </header>
+
+            <!-- Introduction -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8 italic">The "Blank Canvas" Problem</h2>
+                <div class="bg-zinc-900/50 p-8 rounded-lg border border-zinc-800">
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        In the modern web, static forms are dying. Users want to build layouts visually, drag components
+                        around, and see the results instantly. When I built the <strong>Block Editor</strong>, the goal
+                        wasn't just to make a tool—it was to build a <strong>Framework for Creation</strong>.
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        Total development time: <strong>15 Days</strong> | Lines of code: <strong>~3,500 JS</strong>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Core Pillar 1: Registry -->
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-primary-color mb-6 flex items-center gap-4">
+                    <span class="p-2 bg-primary-dark/20 rounded">01</span>
+                    The Component Registry
+                </h3>
+                <p class="text-gray-300 mb-6">Modularity is the key. By using a centralized
+                    <code>ComponentRegistry</code>, adding a new block type (like a Video or Map) becomes as simple as
+                    registering a new class. No changes to the core editor logic are required.</p>
+                <div class="bg-black/40 p-5 rounded code-block text-xs text-green-400 leading-relaxed">
+                    <pre><code><span class="text-gray-500">// Registering a new custom block</span>
+<span class="text-yellow-400">ComponentRegistry</span>.<span class="text-green-400">register</span>(<span class="text-orange-400">'hero-banner'</span>, {
+    <span class="text-gray-100">class</span>: <span class="text-yellow-400">HeroComponent</span>,
+    <span class="text-gray-100">icon</span>: <span class="text-orange-400">'layout_hero'</span>,
+    <span class="text-gray-100">category</span>: <span class="text-orange-400">'Marketing'</span>
+});</code></pre>
+                </div>
+            </section>
+
+            <!-- Core Pillar 2: DOM Building -->
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-primary-color mb-6 flex items-center gap-4">
+                    <span class="p-2 bg-primary-dark/20 rounded">02</span>
+                    The DOMBuilder Engine
+                </h3>
+                <p class="text-gray-300 mb-6 font-light">To maintain a clean separation of concerns, the editor uses a
+                    specialized <code>DOMBuilder</code> utility. This handles the complex nesting and attribute mapping
+                    without cluttered <code>document.createElement</code> calls throughout the business logic.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-zinc-900/30 rounded-lg border border-zinc-800">
+                        <h4 class="text-sm font-bold text-white mb-2 uppercase">Input</h4>
+                        <p class="text-xs text-gray-500 italic">JSON manifest of the layout structure and element
+                            properties.</p>
+                    </div>
+                    <div class="p-6 bg-zinc-950 rounded-lg border border-primary-dark/50">
+                        <h4 class="text-sm font-bold text-primary-color mb-2 uppercase">Output</h4>
+                        <p class="text-xs text-gray-400 italic">Semantic, clean HTML ready for frontend rendering or
+                            storage.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-primary-light mb-8">Advanced UX: Context & Resizing</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 hover:border-primary-color transition-colors group">
+                        <h4 class="font-bold text-gray-100 mb-3 group-hover:text-primary-color">Context Menus</h4>
+                        <p class="text-xs text-gray-500">Right-click interaction for deep property editing, duplicating,
+                            and deleting areas without leaving the focus.</p>
+                    </div>
+                    <div
+                        class="bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 hover:border-primary-color transition-colors group">
+                        <h4 class="font-bold text-gray-100 mb-3 group-hover:text-primary-color">Dynamic Resizing</h4>
+                        <p class="text-xs text-gray-500">Implemented a custom grid-width calculation engine that adjusts
+                            columns in real-time as users drag border handles.</p>
+                    </div>
+                    <div
+                        class="bg-zinc-900/50 p-6 rounded-lg border border-zinc-800 hover:border-primary-color transition-colors group">
+                        <h4 class="font-bold text-gray-100 mb-3 group-hover:text-primary-color">State Management</h4>
+                        <p class="text-xs text-gray-500">Built an undo/redo stack that tracks recursive changes to the
+                            component tree for a bulletproof editing experience.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Takeaway -->
+            <section
+                class="mb-16 bg-gradient-to-r from-zinc-900 to-black p-10 rounded-2xl border border-zinc-800 text-center">
+                <h2 class="text-3xl font-bold gradient-heading mb-6 tracking-tight">The Vision</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto italic leading-relaxed">
+                    "A great editor shouldn't feel like a tool; it should feel like an extension of the creator's mind.
+                    By focusing on a modular architecture and semantic DOM building, we created an editor that is as
+                    powerful as it is easy to use."
+                </p>
+                <div class="mt-8">
+                    <span
+                        class="inline-block px-4 py-1 bg-zinc-800 rounded-full text-[10px] text-primary-color font-bold uppercase tracking-widest">
+                        Extensible • Accessible • Fast
+                    </span>
+                </div>
+            </section>
+        </article>
+
+        <!-- Navigation -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 py-8 border-t border-zinc-800">
+            <a href="intelligent-cache-management.html"
+                class="group flex items-center gap-4 text-gray-400 hover:text-primary-color transition-colors">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <div class="text-right">
+                    <div class="text-xs text-gray-600 uppercase">Previous Post</div>
+                    <div class="font-semibold">Intelligent Cache Management</div>
+                </div>
+            </a>
+            <div class="hidden md:block w-px h-12 bg-zinc-800"></div>
+            <a href="../index.html#blogs" class="text-primary-color hover:text-primary-light font-semibold">View All
+                Blogs</a>
+        </div>
+    </main>
+
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-8 mt-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+                <div class="text-gray-500 text-sm">&copy; 2026 Muhiminul Haque Apon. All rights reserved.</div>
+                <div class="flex gap-6">
+                    <a href="../index.html" class="text-gray-400 hover:text-primary-color transition-colors">Home</a>
+                    <a href="../index.html#project"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Projects</a>
+                    <a href="../index.html#contact"
+                        class="text-gray-400 hover:text-primary-color transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
