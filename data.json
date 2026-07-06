@@ -90,6 +90,11 @@
     ],
     "projects": [
         {
+            "name": "ApiTab",
+            "description": "ApiTab is a local-first, Postman-alternative API testing tool shipped as a browser extension (Chrome/Firefox) and an Electron desktop app (Windows/Mac/Linux), sharing one React/TypeScript codebase. Includes a request builder, environments, a Postman-script-compatible pre-request/post-response sandbox, and Postman collection import. An optional Laravel + Sanctum backend adds team workspaces with role-based collection sharing and a per-team shared-variable pool.",
+            "link": "https://apitab.duckdns.org"
+        },
+        {
             "name": "HostSaler Laravel Backend",
             "description": "HostSaler is a powerful backend solution for hosting service management, designed to help businesses and organizations manage web hosting operations efficiently. Built with the Laravel framework, it offers seamless integration with various web hosting functionalities, making it easier for users to handle and track hosting plans, customers, and payments",
             "link": "Private Repository"

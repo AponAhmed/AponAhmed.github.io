@@ -22,9 +22,10 @@ SERVICES = [
 ]
 
 PROJECTS = [
-    "team-pulse.html", "cronify.html", "sshost.html", "block-editor.html", 
-    "bulk-desktop.html", "helpdesk.html", "customizer.html", "bulk-web.html", 
-    "wp-backup.html", "wp-cache.html", "wp-contact.html", "private-plugins.html", 
+    "apitab.html",
+    "team-pulse.html", "cronify.html", "sshost.html", "block-editor.html",
+    "bulk-desktop.html", "helpdesk.html", "customizer.html", "bulk-web.html",
+    "wp-backup.html", "wp-cache.html", "wp-contact.html", "private-plugins.html",
     "erp.html"
 ]
 
