@@ -22,7 +22,10 @@ html body {
 }
 
 .zi-10 {
-  z-index: 10;
+  /* Must stay above the site header's z-50 once it goes fixed on scroll
+     (see nav() in App.js) - otherwise the header covers the popup's own
+     title and close button. */
+  z-index: 9999;
 }
 
 .popup-content {
@@ -86,6 +89,11 @@ html body {
   .popup-content {
     height: calc(100% - 0px);
     margin: 0px auto;
+    /* Tailwind's p-10 (2.5rem all around) leaves almost no usable width on
+       phones - shrink it, and reserve extra top padding so content clears
+       the close button instead of sitting under it. */
+    padding: 1rem;
+    padding-top: 3.5rem;
   }
 
 }
