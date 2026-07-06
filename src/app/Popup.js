@@ -71,6 +71,8 @@ class Popup {
 
     close() {
         this.popupUi.element.remove();
+        // Re-enable background scrolling (mirrors Lightbox's own lock/unlock).
+        document.body.style.overflow = 'auto';
     }
 
     loadContent() {
@@ -93,6 +95,11 @@ class Popup {
 
     renderToBody() {
         document.body.appendChild(this.popupUi.element);
+        // Lock background scrolling while the popup is open — without this,
+        // touch-scroll gestures on mobile can get captured by the page
+        // behind the fixed overlay instead of scrolling the popup's own
+        // content (same fix Lightbox already applies for its overlay).
+        document.body.style.overflow = 'hidden';
         const imageElements = this.popupUi.element.querySelectorAll('.lightbox');
         const lightbox = new Lightbox(Array.from(imageElements));
     }
