@@ -116,10 +116,13 @@
                     </p>
                     <p class="text-gray-300 leading-relaxed mb-4">
                         For teams, an optional Laravel + Sanctum backend adds account login and team workspaces —
-                        collections can be shared with a team (role-aware: owners/admins can edit for everyone,
-                        plain members get a local-only read-through view), and individual environment variables can
-                        be flagged to sync to a per-team shared pool, all while environments themselves stay
-                        device-local by default.
+                        collections are shared per person: an owner/admin assigns a collection to specific
+                        teammates, who get a live preview (item count, request list, who shared it) and can Accept
+                        or Decline before it lands in their workspace. Sync runs on a fast near-real-time poll while
+                        the app is focused, so a freshly-shared collection shows up without a re-login. Owners/admins
+                        can also remove a member, which immediately revokes their access to that team's collections.
+                        Individual environment variables can additionally be flagged to sync to a per-team shared
+                        pool, all while environments themselves stay device-local by default.
                     </p>
                 </section>
 
@@ -133,15 +136,20 @@
                                     JSON/form/urlencoded bodies, and response viewer with headers, cURL, and code
                                     snippet generation.</li>
                                 <li>Environments with <code
-                                        class="text-primary-color">{{variable}}</code> interpolation, plus a
+                                        class="text-primary-color">{{variable}}</code> interpolation and inline
+                                    autocomplete — type <code class="text-primary-color">{{</code> in any URL,
+                                    param, or header field to get instant matching suggestions — plus a
                                     pre-request/post-response JavaScript sandbox exposing a <code
                                         class="text-primary-color">pm.*</code>-compatible scripting API, so
                                     pasted Postman scripts run unmodified.</li>
                                 <li>Import Postman Collection (v2/v2.1) and Environment exports directly, alongside
                                     ApiTab's own cURL and JSON import/export formats.</li>
-                                <li>Team workspaces: shared collections with owner/admin/member roles, a per-team
-                                    shared-variable pool for opted-in environment variables, and a sidebar that
-                                    visually separates your personal workspace from each team's shared space.</li>
+                                <li>Team workspaces with per-person collection assignment: owners/admins pick exactly
+                                    who a shared collection goes to, recipients get an Accept/Decline popover with a
+                                    live preview, and removing a member automatically revokes their access — synced
+                                    on a fast near-real-time poll, with a per-team shared-variable pool for opted-in
+                                    environment variables and a sidebar that visually separates your personal
+                                    workspace from each team's shared space.</li>
                                 <li>Cross-platform desktop installers (Windows, macOS, Linux) built and published
                                     automatically via GitHub Actions on every tagged release.</li>
                             </ul>
